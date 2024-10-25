@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .image-display {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: 87vh;
+            flex-shrink: 0;
+        }
+
+        #enlargedImage {
+            object-fit: cover;
+            position: absolute;
+            transition: all 0.5s ease;
+            margin-left: 15px;
+            margin-right: 20px;
+        }
+
+        .image-start-position {
+            width: 450px;
+            height: 500px;
+            left: 50vw; /* Posizione iniziale al centro della pagina */
+            top: 29.2vh; /* Altezza iniziale simile a carousel */
+            transform: translateX(-50%); /* Centra l'immagine */
+        }
+
+        .image-final-position {
+            width: 200px;
+            height: 250px;
+            left: 15px; /* Sposta l'immagine a sinistra */
+            top: 23.5vh; /* Mantiene la stessa altezza */
+        }
+
+        .list {
+            font-family: 'Blur Medium', sans-serif;
+            height: 100vh;    
+            font-size: clamp(35px, 10vw, 60px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
+            margin-top: 22vh;
+            margin-left: 25vw;
+            margin-right: 5vw;
+            letter-spacing: -3px;
+        }
+
+        .nav-link {
+            color: #e7e7e7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .list .nav-link {
+            white-space: nowrap; /* Prevent line breaks within links */
+        }
+
+        .nav-link.active {
+            color: #000000;
+        }
+
+        .footer-container{
+    display: flex;
+    position: absolute; /* Posiziona il testo in modo assoluto */
+    bottom: -3.5vh; /* Distanza dal basso */
+    width: 100%; /* Occupa tutta la larghezza dello schermo */
+    z-index: -1000; 
+    justify-content: center;
+    left: -4px;
+}
+
+
+.footer-text {
+    left: 0; /* Allinea a sinistra */
+    width: 100%; /* Occupa tutta la larghezza dello schermo */
+    text-align: center; /* Centra il testo */
+    font-family: 'Blur Medium', sans-serif; /* Applica il font */
+    font-size: 13.5vw; /* Dimensione del font */  
+    letter-spacing: -0.9vw;  
+    color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    .footer-text {
+        display: flex;
+        flex-direction: column; /* Imposta la direzione verticale */
+        font-size: 21vw; /* Modifica la dimensione del font per dispositivi mobili */
+    }
+    
+    .footer-text .first-name {
+        display: block; /* Mostra Giulia nella prima riga */
+        margin-bottom: -35px; /* Riduci la distanza sotto "Giulia" */
+    }
+    
+    .footer-text .last-name {
+        display: block; /* Mostra Polimeno nella seconda riga */
+        margin-bottom: 20px; /* Riduci la distanza sotto "Giulia" */
+    }
+
+    .list {
+        margin-top: 15vh; /* Cambia il margine superiore per adattarsi meglio */
+        margin-left: 10px; /* Allinea la lista al margine sinistro */
+        margin-right: 0; /* Rimuovi il margine destro */
+        width: 100%; /* Assicura che la lista occupi solo quanto necessario */
+        letter-spacing: -1.5px;
+    }
+
+
+
+    #enlargedImage {
+        display: none; /* Nascondi l'immagine ingrandita sui dispositivi mobili */
+    }
+
+     .image-display {
+        display: none; /* Nascondi il contenitore dell'immagine sui dispositivi mobili */
+    }
+
+    /* Set nav-link color to black on mobile */
+    .list .nav-link {
+            color: #e7e7e7; /* Change text color to black on mobile */
+        }
+
+        .list .nav-link.active {
+            color: #e7e7e7; /* Change text color to black on mobile */
+        }
+}
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <header>
+        <div class="header-container">
+            <div class="left">Portfolio</div>
+    
+            <div class="navigation-header center">
+                <a href="carousel.html" class="nav-link">Carousel</a>
+                <a id="listLink" class="nav-link active"><span class="slash">/</span> List</a>
+            </div>
+    
+            <div class="navigation-header right">
+                <a href="about.html" class="nav-link header">About</a>
+               
+            </div>
+           
+        </div>
+    </header>
+
+
+    <div class="footer-container">
+        <div class="footer-text">
+            <span class="first-name">GIULIA</span>
+            <span class="last-name">POLIMENO</span>
+        </div>
+    </div>
+
+
+    <div class="image-display">
+        <img id="enlargedImage" src="" alt="Enlarged Image">
+    </div>
+
+    <div class="list">
+        <a href="pagina1.html" class="nav-link" data-image-id="1" data-image-url="images/image1.png">01 BCTR</a> 
+        <a href="pagina2.html" class="nav-link" data-image-id="2" data-image-url="images/image2.png">02 Venezia all'Opera</a> 
+        <a href="pagina3.html" class="nav-link" data-image-id="3" data-image-url="images/image3.jpg">03 .img</a> 
+        <a href="pagina4.html" class="nav-link" data-image-id="4" data-image-url="images/image4.png">04 Endless Coffee</a> 
+        <a href="pagina5.html" class="nav-link" data-image-id="5" data-image-url="images/image5.png">05 U-Turn</a>
+        <a href="pagina6.html" class="nav-link" data-image-id="6" data-image-url="images/image6.png">06 Necropoli</a>
+        <a href="pagina7.html" class="nav-link" data-image-id="7" data-image-url="images/image7.png">07 TedX Courmayeur</a>
+        <a href="pagina8.html" class="nav-link" data-image-id="8" data-image-url="images/image8.png">08 A Occhio Nudo</a>
+        <a href="pagina9.html" class="nav-link" data-image-id="9" data-image-url="images/image9.png">09 Musica Viva </a>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const imageUrl = getQueryParam('image');
+        const enlargedImage = document.getElementById('enlargedImage');
+        const links = document.querySelectorAll('.list .nav-link');
+
+        function updateActiveLink(imageUrl) {
+            const imageId = parseImageId(imageUrl);
+            links.forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav-link[data-image-id="${imageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        function parseImageId(imageUrl) {
+            const regex = /image(\d+)/;
+            const match = regex.exec(imageUrl);
+            return match ? match[1] : null;
+        }
+
+        function initializeImage() {
+            if (imageUrl) {
+                enlargedImage.src = imageUrl;
+                enlargedImage.classList.add('image-start-position');
+                setTimeout(() => {
+                    enlargedImage.classList.remove('image-start-position');
+                    enlargedImage.classList.add('image-final-position');
+                }, 100); // dopo quanto parte l'animazione in ms
+                updateActiveLink(imageUrl);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeImage();
+            links.forEach(link => {
+                link.addEventListener('mouseenter', function () {
+                    const imageSrc = this.getAttribute('data-image-url');
+                    enlargedImage.src = imageSrc;
+                    updateActiveLink(imageSrc);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 06 - Necropoli</title>
+    <link rel="stylesheet" href="style-project.css">
+
+
+    
+</head>
+
+
+<body>
+
+
+    <header>
+        <div class="header-container">
+            <div class="left">
+                <a href="carousel.html" class="nav-link active header">GP</a>
+             </div>
+            <div class="navigation-header right">
+                <a href="about.html" class="nav-link header">About</a>
+                <a href="carousel.html" class="nav-link header">/ Projects</a>
+                <a href="pagina1.html" class="nav-link active header">/ 06.</a>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="title">Necropoli</div>
+
+    <div id="columns">
+        <div class="column1">
+            <span class="project-info">Project info</span><br>
+            <span class="paragraph">Brand Identity</span>
+        </div>
+        <div class="column2">
+            <span class="project-info">Collaborators</span><br>
+            <span class="paragraph">S. Cosentino, <br>A. Cupisti, G. Schena</span>
+        </div>
+        <div class="column3">
+            <span class="project-info">Year</span><br>
+            <span class="paragraph">2022</span>
+        </div>
+    </div>
+
+    <div id="image-container">
+        <img id="fixed-image" src="Necropoli/gif_colori.gif" alt="Immagine" />
+    </div>
+
+
+    <!--SCROLL CONTAINER IMG+CAPTION -->
+   <div id="scroll-container1">
+        <div class="images">
+            <img class="scrollable-image" src="Necropoli/Screenshot 2023-09-24 alle 17.01.55.png" alt="Immagine 2" />
+            <img class="scrollable-image" src="Necropoli/Screenshot 2023-09-24 alle 17.02.10.png" alt="Immagine 3" />
+            <img class="scrollable-image" src="Necropoli/biglietti.png" alt="Immagine 3" />
+            <img class="scrollable-image" src="Necropoli/Schermata 2023-07-12 alle 14.17.42.png" alt="Immagine 3" />
+        
+
+        </div>
+        <div class="caption1">
+            This speculative project explores the relationship between humans and nature in the context
+            of climate change, but with a twist: it introduces non-human perspectives through the lens of
+            the BCTR corporation. It's a scientific organization with a high level of secrecy that operates in
+            order to reveal the true power of the bacterial species, claiming its superiority over other life
+            forms. At the forefront of their discoveries is Maya, an interactive electronic device designed
+            to explore and communicate the findings of BCTR. The pinnacle of discoveries conducted by
+            the organization is Maya, whose task is to reveal the species truly fitted for the continuation of
+            life on planet Earth, revealing a disturbing new reality.
+        </div>
+    </div>
+
+
+     <!--IMMAGINI IN MEZZO-->
+        <div class="image-row">
+            <img class="horizontal-images" src="Necropoli/POST.png" alt="Immagine 2" />
+            <img class="horizontal-images" src="Necropoli/POST copia.png" alt="Immagine 3" />
+        </div>
+    
+    
+
+     <!--SCROLL CONTAINER IMG+CAPTION -->
+    <div id="scroll-container2">
+        <div class="caption2">
+            Users can interact with his interactive
+            electronic device, prototyped <br>using Arduino hardware and 3D printing. This project, serving also
+            as the subject of my bachelor thesis, delves into themes of environmentalism, scientific ethics,
+            and the complex dynamics between humans and the natural world. Through Maya and the
+            narrative surrounding BCTR, my group and I, explored provocative questions about the future of
+            life on Earth and our role within it. <br> Aggiungere Anthropogenic Narratives
+        </div>
+        <div class="images">
+            <img class="scrollable-image" src="Necropoli/ezgif.com-video-to-gif-2.gif" alt="Immagine 3" />
+            <img class="scrollable-image" src="Necropoli/Wayfinding & Signage PSD Mockup.png" alt="Immagine 2" />
+        </div>
+    </div>
+
+
+    <!-- Container per il video finale YouTube -->
+  
+ 
+   
+      <!--IMMAGINI IN MEZZO-->
+      <div class="image-row">
+        <img class="horizontal-images3" src="Necropoli/Screenshot 2023-09-23 alle 22.52.47.png" alt="Immagine 2" />
+        <img class="horizontal-images3" src="Necropoli/Screenshot 2023-09-23 alle 22.53.01.png" alt="Immagine 3" />
+        <img class="horizontal-images3" src="Necropoli/Screenshot 2023-09-23 alle 22.52.52.png" alt="Immagine 3" />   
+    </div>
+
+ 
+
+
+
+
+<!--PROJ PRECEDENTE E SUCCESSIVO-->
+        <footer>
+            <a href="pagina5.html" class="footer-link">Previous Project</a>
+            <a href="#" class="footer-link back-to-top">↑ Back to Top</a>
+            <a href="pagina7.html" class="footer-link">Next Project</a>
+        </footer>
+
+
+
+
+    <script>
+        window.onload = function() {
+            const fixedImage = document.getElementById('fixed-image');
+            const title = document.getElementById('title');
+            const columns = document.getElementById('columns');
+
+            // Mostra il titolo dopo un breve ritardo
+            setTimeout(() => {
+                title.style.opacity = "1"; // Rendi il titolo visibile
+            }, 500);
+
+            // Mostra le colonne subito dopo il titolo
+            setTimeout(() => {
+                columns.style.opacity = "1"; // Rendi le colonne visibili
+                columns.style.transform = "translateY(15vh)"; // Sposta le colonne verso il basso
+            }, 500);
+
+            // Dopo un breve ritardo, ingrandisci e sposta l'immagine verso il basso
+            setTimeout(() => {
+                fixedImage.style.width = "97%";
+                fixedImage.style.height = "700px";
+                fixedImage.style.transform = "translateY(15vh)"; // Sposta l'immagine verso il basso
+            });
+        };
+
+        // Funzione per tornare all'inizio della pagina
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+             e.preventDefault();
+              window.scrollTo({
+                 top: 0,
+                  behavior: 'smooth'
+                });
+            });
+
+    </script>
+
+</body>
+</html>
