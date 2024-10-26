@@ -128,6 +128,11 @@
         }
 }
 
+/* Aggiungi questo stile */
+.nav-link.clicked {
+    color: #000000 !important;
+}
+
     </style>
 
 </head>
@@ -224,6 +229,44 @@
                 });
             });
         });
+
+
+
+
+        // LA LISTA DIVENTA NERA SE CLICCATA
+
+        window.addEventListener('DOMContentLoaded', () => {
+    initializeImage();
+
+    // Verifica se il dispositivo supporta il touch
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', function () {
+            const imageSrc = this.getAttribute('data-image-url');
+            enlargedImage.src = imageSrc;
+            updateActiveLink(imageSrc);
+        });
+
+        // Aggiungi "touchend" solo per i dispositivi mobili per cambiare colore e navigare
+        if (isTouchDevice) {
+            link.addEventListener('touchend', function (event) {
+                event.preventDefault(); // Impedisce la navigazione immediata
+
+                // Rimuovi la classe "clicked" da tutti i link e la aggiungi al link selezionato
+                links.forEach(link => link.classList.remove('clicked'));
+                this.classList.add('clicked');
+
+                // Ritardo per vedere il colore cambiare prima della navigazione
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 100); // 100 ms per dare un piccolo ritardo visivo
+            });
+        }
+    });
+});
+
+        
     </script>
 </body>
 </html>
