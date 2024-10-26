@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TedX Courmayeur</title>
+    <link rel="stylesheet" href="style-project.css">
+
+
+    
+</head>
+
+
+<body>
+
+
+    <header>
+        <div class="header-container">
+            <div class="left">
+                <a href="carousel.html" class="nav-link active">GP</a>
+            </div>
+    
+            <div class="navigation-header center">
+                <a href="carousel.html" class="nav-link">Projects</a>
+                <a href="carousel.html" class="nav-link active"> / 07</a>
+            </div>
+    
+            <div class="navigation-header right">
+                <a href="about.html" class="nav-link header ">About</a>
+               
+            </div>
+           
+        </div>
+    </header>
+
+
+    <div id="title">TedX Courmayeur</div>
+
+    <div id="columns">
+        <div class="column1">
+            <span class="project-info">Project info</span><br>
+            <span class="paragraph">Brand Identity<br>Social media</span>
+        </div>
+        <div class="column2">
+            <span class="project-info">Collaborators</span><br>
+            <span class="paragraph">S. Buffa, B. Crouch, G. Bernasconi,<br>A. Cupisti, E. Galliani, C. Sereni, A. Sanna</span>
+        </div>
+        <div class="column3">
+            <span class="project-info">Year</span><br>
+            <span class="paragraph">2022</span>
+        </div>
+    </div>
+
+    <div id="image-container">
+        <img id="fixed-image" src="images/image7.png" alt="Immagine" />
+    </div>
+
+
+    <!--SCROLL CONTAINER IMG+CAPTION -->
+   <div id="scroll-container1">
+        <div class="images">
+            <img class="scrollable-image" src="TedX/TEDx_banner.jpg" alt="Immagine 2" />
+            <img class="scrollable-image" src="TedX/TEDx_ig_profile.jpg" alt="Immagine 3" />
+            <img class="scrollable-image" src="TedX/TEDx_pass.jpg" alt="Immagine 3" />
+            <img class="scrollable-image" src="TedX/TEDx_menu.jpg" alt="Immagine 3" />
+        </div>
+        <div class="caption1">
+            TEDx is able to compose reflections of fields seemingly disconnected from
+one another into something that is more than the isolated parts, allowing
+us to understand reality in its totality. Platonic solids, the most basic units
+of the cosmos for excellence, represent the natural possibility of change
+while not losing their ability to be independent and part of a whole. Tedx
+Courmayeur 2023, takes place in special natural setting, in an evocative
+high atmosphere surrounded by peaks, as if to emphasize that the edge
+between nature and geometry is almost imperceptible. The team and
+I, have created a system of artifacts to promote the event and these
+principles, from instagram posts to the merchandising.
+        </div>
+    </div>
+
+
+    <!-- Container per il video finale YouTube -->
+  
+    <div class="video-container-grey">
+        <div class="vertical-video-container">
+            <blockquote class="instagram-media" 
+             data-instgrm-permalink="https://www.instagram.com/reel/CsJy4Pkohrk/?utm_source=ig_embed&amp;utm_campaign=loading" 
+            data-instgrm-version="14" 
+            style="background:#FFF; border:0;  box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); 
+            width:100%; max-height: 30.5%;">
+                <div>
+                    <a href="https://www.instagram.com/reel/CsJy4Pkohrk/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                        <!-- Video code here -->
+                    </a>
+                </div>
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+    </div>
+    
+    
+
+   
+      <!--IMMAGINI IN MEZZO-->
+      <div class="image-row">
+        <img class="horizontal-images3" src="TedX/magliette.jpg" alt="Immagine 2" />
+        <img class="horizontal-images3" src="TedX/TEDx_poster.jpg" alt="Immagine 3" />
+        <img class="horizontal-images3" src="TedX/IMG_3644.jpg" alt="Immagine 3" />   
+    </div>
+
+ 
+
+
+
+
+<!--PROJ PRECEDENTE E SUCCESSIVO-->
+        <footer>
+            <a href="pagina6.html" class="footer-link">Previous</a>
+            <a href="#" class="footer-link back-to-top">↑ Back to Top</a>
+            <a href="pagina8.html" class="footer-link">Next</a>
+        </footer>
+
+
+
+
+    <script>
+        window.onload = function() {
+            const fixedImage = document.getElementById('fixed-image');
+            const title = document.getElementById('title');
+            const columns = document.getElementById('columns');
+
+            // Mostra il titolo dopo un breve ritardo
+            setTimeout(() => {
+                title.style.opacity = "1"; // Rendi il titolo visibile
+            }, 500);
+
+            // Mostra le colonne subito dopo il titolo
+            setTimeout(() => {
+                columns.style.opacity = "1"; // Rendi le colonne visibili
+                columns.style.transform = "translateY(15vh)"; // Sposta le colonne verso il basso
+            }, 500);
+
+            // Dopo un breve ritardo, ingrandisci e sposta l'immagine verso il basso
+            setTimeout(() => {
+                fixedImage.style.width = "97%";
+                fixedImage.style.height = "700px";
+                fixedImage.style.transform = "translateY(15vh)"; // Sposta l'immagine verso il basso
+            });
+        };
+
+        // Funzione per tornare all'inizio della pagina
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+             e.preventDefault();
+              window.scrollTo({
+                 top: 0,
+                  behavior: 'smooth'
+                });
+            });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,468 @@
+
+        @font-face {
+            font-family: 'Vevey-HumanKind';
+            src: url('fonts/Vevey-HumanKind.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'Blur Medium';
+            src: url('fonts/Blur Medium.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'ABCMonumentGrotesk-Light';
+            src: url('fonts/ABCMonumentGrotesk-Light-Trial.otf') format('opentype');
+        }
+
+         @font-face {
+            font-family: 'Matter Light';
+            src: url('fonts/Matter-Light.ttf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'Pressura Mono';
+            src: url('fonts/GT-Pressura-Mono-Light-Trial.otf') format('opentype');
+        }
+
+      
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            overflow-y: auto; /* Permette lo scorrimento verticale */
+            overflow-x: hidden; /* Nasconde lo scroll orizzontale */
+        }
+
+
+         /* HEADER */
+
+   
+        header {
+            position: fixed; /* Mantiene l'intestazione fissa in cima alla pagina */
+            top: 0;
+            left: 0;
+            right: 0;
+            font-family: 'Vevey-HumanKind', sans-serif; /* Applica il font */
+            z-index: 1000; /* Assicura che l'intestazione sia sopra il contenuto */
+            font-size: 18px; /* Dimensione del font */
+            font-family: 'Blur Medium', sans-serif; /* Applica il font */
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .header-container {
+            display: flex; /* Usa flexbox per allineare gli elementi */
+            justify-content: space-between; /* Spazia gli elementi in modo che siano ai lati */
+            align-items: center; 
+            padding: 15px; /* Spazio interno per l'intestazione */
+            max-width: 100vw; /* Imposta una larghezza massima se desiderato */
+        }
+        
+        .left {
+            flex: 1; /* Occupare lo spazio a sinistra */
+        }
+        
+        .center {
+            text-align: center; /* Left align */
+            justify-content: center; /* Allinea Carousel e List al centro orizzontalmente */
+            align-items: center; 
+            flex: 1; /* Equal space for all columns */
+            display: flex;
+        } 
+        
+        .right {
+            flex: 1; /* Occupare lo spazio a destra */
+            text-align: right; /* Allinea il testo a destra */
+        }
+        
+        
+        
+        /* Nuova classe per la navigazione */
+        .navigation {
+            position: absolute; /* Posiziona la navigazione in modo assoluto */
+            left: 20px; /* Distanza da sinistra */
+            bottom: 180px; /* Distanza dal basso */
+            z-index: 1000; /* Assicura che la navigazione sia sopra il contenuto */
+            font-family: 'Blur Medium', sans-serif; /* Applica il font */
+            font-size: 18px; /* Dimensione del font */
+        }
+        .nav-link {
+            color: #e7e7e7; /* Colore grigio per i link inattivi */
+            margin-right: 5px; /* Spazio tra i link */
+            text-decoration: none;
+        }
+        
+        .nav-link.active {
+            color: #000; /* Colore nero per i link attivi */
+        }
+        
+        .nav-link:hover {
+            color: #000000; /* Colore dei link quando il mouse ci passa sopra */
+       }
+
+
+        #title {
+            font-size: clamp(40px, 14vw, 100px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
+            color: #000;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            font-family: 'Blur Medium', sans-serif; /* Applica il font */
+            letter-spacing: -6px;
+            text-align: center;
+            margin-top: 95px;
+            margin-bottom: 60px;
+            
+        }
+
+        #columns {
+            display: flex;
+            justify-content: center;
+            width: 97%;
+            opacity: 0;
+            transition: all 1s ease;
+            transform: translateY(0); /* Posizione iniziale */
+            margin: 0 0;
+        }
+
+        .column1 {
+            display: inline-block;
+            width: 20vw;
+            text-align: left;
+        }
+
+        .column2 {
+            display: inline-block;
+            width: 30vw;
+            text-align: left;
+        }
+
+        .column3 {
+            display: inline-block;
+            width: 50vw;
+            text-align: right;
+        }
+
+        .project-info {
+            font-size: clamp(16px, 2vw, 18px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
+            font-family: 'Blur Medium', sans-serif; /* Applica il font */
+            line-height: 28px;
+        }
+
+        .paragraph {
+            font-size: clamp(16px, 2vw, 18px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
+            font-family: 'ABCMonumentGrotesk-Light', sans-serif;
+        }
+
+        #image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 130px;
+    
+        }
+
+        #fixed-image {
+            width: 200px;
+            height: 250px;
+            transition: all 0.8s ease;
+            object-fit: cover;
+            will-change: width, height, transform;
+        }
+        
+
+        #scroll-container1 {
+            display: flex;
+            width: 97%;
+            
+            margin-bottom: 10px;
+        }
+
+        #scroll-container2 {
+            display: flex;
+            width: 97%;
+            margin-bottom: 10px;
+            
+        }
+
+        .caption1 {
+            width: 50%;
+            position: sticky;
+            top: 70px;
+            align-self: flex-start;
+            padding-left: 15px;
+            font-family: 'ABCMonumentGrotesk-Light', sans-serif;
+            line-height: 20px;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .caption2{
+            width: 50%;
+            position: sticky;
+            top: 70px;
+            align-self: flex-start;
+            font-family: 'ABCMonumentGrotesk-Light', sans-serif;
+            line-height: 20px;
+            font-size: 18px;
+            padding-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .images {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scrollable-image {
+            width: 100%;
+            height: auto;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .image-row {
+            display: flex; /* Imposta le immagini nella stessa riga */
+            gap: 0px; /* Spazio tra le immagini */
+            overflow: hidden;
+            width: 97%;
+            justify-content: center; /* Centra le immagini all'interno della riga */
+          
+        }
+        
+        .horizontal-images {
+             width: 50%; /* Imposta la larghezza per adattarsi a due immagini nella riga con gap */
+             height: auto; /* Mantiene l'aspetto proporzionale */
+             object-fit: cover;
+             
+            }
+
+            .horizontal-images3{
+             width: 33%; /* Imposta la larghezza per adattarsi a due immagini nella riga con gap */
+             height: auto; /* Mantiene l'aspetto proporzionale */
+             margin: 5px;
+             object-fit: cover;
+            }
+
+      
+
+
+/* VIDEO VIMEO */
+
+.video-container-grey {
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Centratura orizzontale */
+    align-items: center; /* Centratura verticale */
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 94%; /* Occupa l'intera larghezza */
+    background-color: #f1f1f1; /* Colore di sfondo grigio */
+    padding: 20px; /* Spazio interno per il contenitore */
+}
+
+.horizontal-video-container {
+    width: 80%; /* Riduce la larghezza del video */
+    position: relative;
+    padding-top: 56.25%; /* Mantiene l'aspetto del video 16:9 */
+}
+.horizontal-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/* VIDEO INSTAGRAM */
+
+.vertical-video-container blockquote.instagram-media {
+    position: absolute; /* Posiziona il contenuto in modo assoluto */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto; /* Centra il video */
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+/* Stile per il footer */
+footer {
+            display: flex;
+            justify-content: space-between;
+            width: 97%;
+            max-width: 97%;
+            font-family: 'Blur Medium', sans-serif;
+            font-size: 18px;
+            margin:2%;
+        }
+
+        .footer-link {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #000; /* Cambia colore al passaggio del mouse */
+        }
+    
+        
+        /* Stile per il link Back to Top */
+        .back-to-top {
+            cursor: pointer;
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .body{
+                overflow-x: hidden;
+            }
+            
+            #columns {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                opacity: 1; /* Rendi subito visibile sui dispositivi mobili */
+                transform: translateY(0); /* Reset */
+            }
+            
+            .column1, .column2, .column3 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px; /* Aggiungi spazio tra le colonne */
+            }
+        
+            #scroll-container1, #scroll-container2 {
+                flex-direction: column-reverse; /* Dispone in colonna su dispositivi mobili */
+                align-items: center;
+                width: 97%;
+            }
+        
+            #scroll-container2 {
+                flex-direction: column; /* Dispone in colonna su dispositivi mobili */
+            }
+
+          
+            .images {
+                width: 100%; /* Occupa tutta la larghezza */
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Centra le immagini nella colonna */
+            }
+        
+            .scrollable-image {
+                width: 100%;
+                margin-top: 5px;
+            }
+        
+            .caption1 {
+                margin-left: -10px;
+                width: 97%; /* Aumenta la larghezza delle didascalie per avvicinarsi al bordo dello schermo */
+                font-size: 16px; /* Ridimensiona per dispositivi mobili */
+                text-align: left; /* Mantiene il testo allineato a sinistra */
+                margin-top: 10px;
+                position: static; /* Rimuovi il comportamento sticky */
+            }
+        
+            .caption2 {
+                margin-left: 5px;
+                width: 97%; /* Aumenta la larghezza delle didascalie per avvicinarsi al bordo dello schermo */
+                font-size: 16px; /* Ridimensiona per dispositivi mobili */
+                text-align: left; /* Mantiene il testo allineato a sinistra */
+                margin-top: 10px;
+                position: static; /* Rimuovi il comportamento sticky */
+            }
+        
+            .image-row {
+                flex-direction: column; /* Dispone le immagini in colonna */
+                gap: 15px; /* Aggiunge spazio tra le immagini */
+                width: 100%;
+            }
+        
+            .horizontal-images, .horizontal-images3 {
+                width: 100%; /* Imposta la larghezza dell'immagine a tutta pagina */
+                margin: 10px 0; /* Aggiunge spazio sopra e sotto ogni immagine */
+            }
+    
+        
+
+            #title {
+               
+                margin-bottom: -50px; /* Modifica il valore a piacere, ad esempio 30px */
+            }
+
+            #image-container {
+                margin-bottom: 140px;
+        
+            }
+
+            footer {
+                flex-direction: row; /* Dispone i link del footer in colonna */
+                align-items: center;
+                text-align: center;
+                font-size: 16px;
+            }
+        
+            .footer-link {
+                margin: 10px 0; /* Aggiungi spazio tra i link del footer */
+            }
+
+            .video-container-grey{
+                max-width: 87%;
+            }
+
+            .video-wrapper {
+                width: 100%; /* Riduce la larghezza del video */
+                position: relative;
+                padding-top: 56.25%; /* Mantiene l'aspetto del video 16:9 */
+            }
+
+            .image-row {
+                display: column; /* Imposta le immagini nella stessa riga */
+                gap: 0px; /* Spazio tra le immagini */
+                overflow: hidden;
+                width: 97%;
+                justify-content: center; /* Centra le immagini all'interno della riga */
+              
+            }
+
+            .horizontal-images3{
+                width: 100%; /* Imposta la larghezza per adattarsi a due immagini nella riga con gap */
+                height: auto; /* Mantiene l'aspetto proporzionale */
+                margin: 2px;
+                object-fit: cover;
+               }
+
+               .horizontal-images{
+                width: 100%; /* Imposta la larghezza per adattarsi a due immagini nella riga con gap */
+                height: auto; /* Mantiene l'aspetto proporzionale */
+                margin: 2px;
+                object-fit: cover;
+               }
+   
+
+        }
+        
