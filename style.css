@@ -52,10 +52,11 @@ body {
 }
 
 .image {
+    flex-shrink: 0; /* Evita che le immagini si comprimano */
+    object-fit: cover;
     width: 200px;
     height: 250px;
-    object-fit: cover;
-    flex-shrink: 0; /* Evita che le immagini si comprimano */
+  
     transition: width 0.6s ease, height 0.6s ease;
 }
 
@@ -217,18 +218,21 @@ body {
     position: sticky;
     top: 27vh;
     display: flex;
-    padding-left: 15px;
+    padding: 15px;
     font-family: 'ABCMonumentGrotesk-Light', sans-serif;
-    line-height: 20px;
-    font-size: 18px;
     margin-bottom: 20px;
     display: inline-block;
+    font-size: clamp(16px, 2vw, 18px);
+    
+  
 }
 
 .about-caption {
     width: 50%;
     justify-content: flex-start;
 }
+
+
 
 
 
@@ -239,7 +243,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-family: 'Blur Medium', sans-serif; /* Font per il testo */
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     transition: transform 0.3s ease; /* Transizione per spostamento */
 }
 
@@ -251,7 +255,8 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease; /* Transizione per far apparire la freccia */
     font-family: 'Blur Medium', sans-serif; /* Font per la freccia */
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
+
 }
 
 /* Effetto hover per mostrare la freccia e spostare il testo */
@@ -269,9 +274,7 @@ body {
 @media (max-width: 768px) {
 
     /* Rendi l'about-conteiner e il contatto più grande sui dispositivi mobili */
-    .about-conteiner {
-        font-size: 5vw; /* Dimensione del testo responsiva */
-    }
+    
 
     .bio-conteiner, .contact-conteiner {
         width: 100%; /* Estendi contenitori a tutta la larghezza dello schermo */
@@ -279,17 +282,35 @@ body {
 
     /* Aumenta la dimensione del testo per i link */
     .about-caption {
-        font-size: 5vw; /* Dimensione del testo adattiva */
         width: 100%;
         justify-content: flex-start;
 
     }
 
-
     /* Aggiungi padding ai link */
     .contact-conteiner a {
         display: inline-block; /* Forza i link a comportarsi come blocchi */
     }
+     
+
+    
+    /* Aggiungi la freccina all'inizio della parola quando si passa sopra il link */
+.contact-conteiner a::before {
+   
+    display: none;
+
+}
+
+/* Effetto hover per mostrare la freccia e spostare il testo */
+.contact-conteiner a:hover::before {
+   display: none;
+}
+
+.contact-conteiner a:hover {
+    transform: none;
+}
+
+
 }
 
 

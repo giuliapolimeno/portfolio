@@ -2,12 +2,14 @@ const scrollContainer = document.getElementById('scrollContainer');
 let lastCenteredImage = null;
 let isScrolling = false; // Variabile per tenere traccia dello stato dello scroll
 
+
+
 function setupInfiniteScroll() {
     const images = document.querySelectorAll('.image-wrapper');
     const imageCount = images.length;
     const imageWidth = images[0].clientWidth;
     
-    for(let cristo=0; cristo<8; cristo++){
+    for(let cristo=0; cristo<9; cristo++){
     // Duplica le immagini all'inizio e alla fine
         for (let i = 0; i < imageCount; i++) {
             const clone = images[i].cloneNode(true);
@@ -39,6 +41,8 @@ function maintainInfiniteScroll() {
     // Trova l'immagine che si trova a circa 50vw e ingrandiscila
     enlargeImageAtCenter();
 }
+
+
 
 
 // Event listener per il rilascio del tocco
