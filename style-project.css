@@ -111,7 +111,7 @@
             font-size: clamp(40px, 14vw, 100px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
             color: #000;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.3s ease;
             font-family: 'Blur Medium', sans-serif; /* Applica il font */
             letter-spacing: -6px;
             text-align: center;
@@ -200,7 +200,7 @@
             padding-left: 15px;
             font-family: 'ABCMonumentGrotesk-Light', sans-serif;
             line-height: 20px;
-            font-size: 18px;
+            font-size: clamp(16px, 2vw, 18px);
             margin-top: 5px;
         }
 
@@ -211,7 +211,7 @@
             align-self: flex-start;
             font-family: 'ABCMonumentGrotesk-Light', sans-serif;
             line-height: 20px;
-            font-size: 18px;
+            font-size: clamp(16px, 2vw, 18px);
             padding-right: 15px;
             margin-top: 5px;
         }
@@ -331,6 +331,11 @@ footer {
         /* Stile per il link Back to Top */
         .back-to-top {
             cursor: pointer;
+                position: absolute; /* Absolute positioning */
+                left: 50%; /* Move to the center horizontally */
+                transform: translateX(-50%); /* Center the element */
+                cursor: pointer;
+            
         }
 
 
@@ -410,8 +415,10 @@ footer {
         
 
             #title {
-               
+               width: 95%;
                 margin-bottom: -50px; /* Modifica il valore a piacere, ad esempio 30px */
+                letter-spacing: -4px;
+                line-height: 60px;
             }
 
             #image-container {
@@ -423,7 +430,7 @@ footer {
                 flex-direction: row; /* Dispone i link del footer in colonna */
                 align-items: center;
                 text-align: center;
-                font-size: 16px;
+                font-size: 18px;
             }
         
             .footer-link {

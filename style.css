@@ -223,6 +223,7 @@ body {
     margin-bottom: 20px;
     display: inline-block;
     font-size: clamp(16px, 2vw, 18px);
+    line-height: 20px;
     
   
 }
@@ -230,8 +231,8 @@ body {
 .about-caption {
     width: 50%;
     justify-content: flex-start;
-}
 
+}
 
 
 
@@ -245,6 +246,8 @@ body {
     font-family: 'Blur Medium', sans-serif; /* Font per il testo */
     font-size: clamp(16px, 2vw, 18px);
     transition: transform 0.3s ease; /* Transizione per spostamento */
+  
+
 }
 
 /* Aggiungi la freccina all'inizio della parola quando si passa sopra il link */

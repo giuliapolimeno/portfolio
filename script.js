@@ -2,6 +2,18 @@ const scrollContainer = document.getElementById('scrollContainer');
 let lastCenteredImage = null;
 let isScrolling = false; // Variabile per tenere traccia dello stato dello scroll
 
+const images = document.querySelectorAll('.image');
+
+images.forEach(image => {
+    const src = image.src; // Memorizza il src originale
+    image.src = ''; // Rimuovi il src iniziale per caricare dopo
+    const imgElement = new Image();
+    imgElement.src = src; // Precarica l'immagine
+    imgElement.onload = () => {
+        image.src = src; // Assegna il src una volta caricata
+        image.style.opacity = 1; // Rendi l'immagine visibile
+    };
+});
 
 
 function setupInfiniteScroll() {
