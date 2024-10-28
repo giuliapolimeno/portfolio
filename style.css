@@ -133,7 +133,6 @@ body {
         align-items: center; 
         flex: 1; /* Equal space for all columns */
         display: flex;
-        white-space: nowrap; /* Evita il capo linea */
     } 
 
     .right {
@@ -278,20 +277,16 @@ body {
 @media (max-width: 768px) {
 
     /* Rendi l'about-conteiner e il contatto più grande sui dispositivi mobili */
-    .about-conteiner{
-        margin-bottom: 100px;
-    }
+    
 
     .bio-conteiner, .contact-conteiner {
         width: 100%; /* Estendi contenitori a tutta la larghezza dello schermo */
-       
     }
 
     /* Aumenta la dimensione del testo per i link */
     .about-caption {
         width: 100%;
         justify-content: flex-start;
-        
 
     }
 
