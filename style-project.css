@@ -386,7 +386,7 @@ footer {
         
             .scrollable-image {
                 width: 100%;
-                margin-top: 5px;
+                margin-top: 0px;
             }
         
             .caption1 {
@@ -396,6 +396,7 @@ footer {
                 text-align: left; /* Mantiene il testo allineato a sinistra */
                 margin-top: 10px;
                 position: static; /* Rimuovi il comportamento sticky */
+                margin-bottom: 10px;
             }
         
             .caption2 {
@@ -405,6 +406,7 @@ footer {
                 text-align: left; /* Mantiene il testo allineato a sinistra */
                 margin-top: 10px;
                 position: static; /* Rimuovi il comportamento sticky */
+                margin-bottom: 10px;
             }
         
             .image-row {
