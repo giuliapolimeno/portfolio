@@ -62,6 +62,7 @@
             align-items: center; 
             padding: 15px; /* Spazio interno per l'intestazione */
             max-width: 100vw; /* Imposta una larghezza massima se desiderato */
+            margin-left: 5px;
         }
         
         .left {
@@ -165,7 +166,7 @@
             align-items: center;
             width: 100%;
             margin-top: 15px;
-            margin-bottom: 130px;
+            margin-bottom: 17vh;
     
         }
 
@@ -182,13 +183,13 @@
             display: flex;
             width: 97%;
             
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         #scroll-container2 {
             display: flex;
             width: 97%;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             
         }
 
@@ -216,6 +217,11 @@
             margin-top: 5px;
         }
         
+        .external-link{
+            text-decoration:underline;
+            color: #000;
+        }
+
         .images {
             width: 50%;
             display: flex;
@@ -265,7 +271,7 @@
     margin-top: 10px;
     margin-bottom: 5px;
     width: 94%; /* Occupa l'intera larghezza */
-    background-color: #f1f1f1; /* Colore di sfondo grigio */
+    background-color: #f5f5f5; /* Colore di sfondo grigio */
     padding: 20px; /* Spazio interno per il contenitore */
 }
 
@@ -422,7 +428,7 @@ footer {
             }
 
             #image-container {
-                margin-bottom: 140px;
+                margin-bottom: 15vh;
         
             }
 
