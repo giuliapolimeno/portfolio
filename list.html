@@ -100,14 +100,22 @@
         margin-bottom: 20px; /* Riduci la distanza sotto "Giulia" */
     }
 
+ 
     .list {
-        margin-top: 15vh; /* Cambia il margine superiore per adattarsi meglio */
+        display: flex;
+        flex-direction: column; /* Imposta la direzione della lista come verticale */
         margin-left: 10px; /* Allinea la lista al margine sinistro */
+        margin-top: 15vh; /* Cambia il margine superiore per adattarsi meglio */
         margin-right: 0; /* Rimuovi il margine destro */
-        width: 100%; /* Assicura che la lista occupi solo quanto necessario */
+        width: 100%; /* Assicura che la lista occupi tutta la larghezza */
         letter-spacing: -1.5px;
     }
 
+    .list .nav-link {
+        display: block; /* Dispone ogni elemento su una nuova riga */
+        font-size: clamp(35px, 8vw, 40px); /* Ridimensiona la dimensione del font per i dispositivi mobili */
+        text-align: left; /* Allinea il testo a sinistra */
+    }
 
 
     #enlargedImage {
