@@ -241,7 +241,7 @@ body {
     color: #000;
     font-family: 'Blur Medium', sans-serif; /* Applica il font */
     letter-spacing: -5px;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-bottom: 30px;
     
 }
@@ -253,21 +253,35 @@ body {
     color: black;
     text-decoration: none;
     display: inline-block;
-   
+    font-family: 'ABCMonumentGrotesk-Light', sans-serif; /* Font per la freccia */
+    text-decoration:underline;
     font-size: clamp(16px, 2vw, 18px);
     transition: transform 0.3s ease; /* Transizione per spostamento */
 }
 
+/* Definisci una classe base per i link dei contatti */
+.about-conteiner a {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'ABCMonumentGrotesk-Light', sans-serif; /* Font per la freccia */
+    text-decoration:underline;
+    font-size: clamp(16px, 2vw, 18px);
+    transition: transform 0.3s ease; /* Transizione per spostamento */
+}
+
+
+
+
 /* Aggiungi la freccina all'inizio della parola quando si passa sopra il link */
 .contact-conteiner a::before {
-   
     position: absolute;
     left: -20px; /* Posiziona la freccia prima del testo */
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease; /* Transizione per far apparire la freccia */
     font-family: 'Blur Medium', sans-serif; /* Font per la freccia */
     font-size: clamp(16px, 2vw, 18px);
-
 }
 
 /* Effetto hover per mostrare la freccia e spostare il testo */
@@ -280,6 +294,25 @@ body {
     transform: translateX(20px); /* Sposta il testo verso destra */
 }
 
+/* quando si passa sopra il link */
+.about-conteiner a::before {
+    position: absolute;
+    left: -20px; /* Posiziona la freccia prima del testo */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transizione per far apparire la freccia */
+    font-family: 'Blur Medium', sans-serif; /* Font per la freccia */
+    font-size: clamp(16px, 2vw, 18px);
+}
+
+/* Effetto hover  */
+.about-conteiner a:hover::before {
+    opacity: 1;
+    transform: translateX(-5px); /* Sposta leggermente la freccia */
+}
+
+.about-conteiner a:hover {
+    transform: translateX(20px); /* Sposta il testo verso destra */
+}
 
 
 @media (max-width: 768px) {
