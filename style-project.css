@@ -50,6 +50,7 @@
             z-index: 1000; /* Assicura che l'intestazione sia sopra il contenuto */
             font-size: 18px; /* Dimensione del font */
             font-family: 'Blur Medium', sans-serif; /* Applica il font */
+            letter-spacing: -0.5px;
         }
         
         a {
@@ -153,6 +154,7 @@
             font-size: clamp(16px, 2vw, 18px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
             font-family: 'Blur Medium', sans-serif; /* Applica il font */
             line-height: 28px;
+            letter-spacing: -0.5px;
         }
 
         .paragraph {
@@ -321,6 +323,7 @@ footer {
             font-family: 'Blur Medium', sans-serif;
             font-size: 18px;
             margin:2%;
+            letter-spacing: -0.5px;
         }
 
         .footer-link {

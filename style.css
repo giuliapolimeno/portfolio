@@ -89,6 +89,7 @@ body {
         z-index: 1000; /* Assicura che l'intestazione sia sopra il contenuto */
         font-size: 18px; /* Dimensione del font */
         font-family: 'Blur Medium', sans-serif; /* Applica il font */
+        letter-spacing: -0.5px;
     }
     
     a {
@@ -164,7 +165,7 @@ body {
     text-align: center; /* Centra il testo */
     font-family: 'Blur Medium', sans-serif; /* Applica il font */
     font-size: 13.5vw; /* Dimensione del font */  
-    letter-spacing: -0.9vw;  
+    letter-spacing: -0.5px;
     color: #f0f0f0;
 }
 
