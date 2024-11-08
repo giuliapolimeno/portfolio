@@ -4,6 +4,7 @@ let isScrolling = false; // Variabile per tenere traccia dello stato dello scrol
 
 const images = document.querySelectorAll('.image');
 
+
 images.forEach(image => {
     const src = image.src; // Memorizza il src originale
     image.src = ''; // Rimuovi il src iniziale per caricare dopo
@@ -14,6 +15,7 @@ images.forEach(image => {
         image.style.opacity = 1; // Rendi l'immagine visibile
     };
 });
+
 
 
 function setupInfiniteScroll() {

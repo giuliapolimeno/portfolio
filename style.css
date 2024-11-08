@@ -236,7 +236,15 @@ body {
 
 }
 
-
+.title {
+    font-size: clamp(40px, 14vw, 60px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
+    color: #000;
+    font-family: 'Blur Medium', sans-serif; /* Applica il font */
+    letter-spacing: -5px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    
+}
 
 
 /* Definisci una classe base per i link dei contatti */
@@ -245,11 +253,9 @@ body {
     color: black;
     text-decoration: none;
     display: inline-block;
-    font-family: 'Blur Medium', sans-serif; /* Font per il testo */
+   
     font-size: clamp(16px, 2vw, 18px);
     transition: transform 0.3s ease; /* Transizione per spostamento */
-  
-
 }
 
 /* Aggiungi la freccina all'inizio della parola quando si passa sopra il link */
