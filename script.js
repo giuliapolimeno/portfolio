@@ -104,7 +104,7 @@ let currentImageUrl = '';
 function enlargeImageAtCenter() {
     const images = document.querySelectorAll('.image-wrapper');
     const containerRect = scrollContainer.getBoundingClientRect();
-    const centerPosition = containerRect.left + containerRect.width / 1.6;
+    const centerPosition = containerRect.left + containerRect.width / 2;
 
     let closestImage = null;
     let closestDistance = Infinity;
@@ -112,7 +112,7 @@ function enlargeImageAtCenter() {
     // Trova l'immagine più vicina al centro dello schermo
     images.forEach(imageWrapper => {
         const imageRect = imageWrapper.getBoundingClientRect();
-        const imageCenter = imageRect.left + imageRect.width / 2;
+        const imageCenter = imageRect.left + imageRect.width / 1;
         const distance = Math.abs(centerPosition - imageCenter);
 
         // Modifica il margine di tolleranza per dispositivi mobili
