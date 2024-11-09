@@ -356,6 +356,30 @@ body {
 }
 
 
+
+ /* Aggiungi padding ai link */
+ .about-conteiner a {
+    display: inline-block; /* Forza i link a comportarsi come blocchi */
+}
+ 
+
+
+/* Aggiungi la freccina all'inizio della parola quando si passa sopra il link */
+.about-conteiner a::before {
+
+display: none;
+
+}
+
+/* Effetto hover per mostrare la freccia e spostare il testo */
+.about-conteiner a:hover::before {
+display: none;
+}
+
+.about-conteiner a:hover {
+transform: none;
+}
+
 }
 
 
