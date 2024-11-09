@@ -160,6 +160,7 @@
         .paragraph {
             font-size: clamp(16px, 2vw, 18px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
             font-family: 'ABCMonumentGrotesk-Light', sans-serif;
+           line-height: 20px;
         }
 
         #image-container {

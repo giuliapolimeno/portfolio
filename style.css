@@ -25,6 +25,7 @@ body {
     overflow: hidden; /* Nasconde overflow verticale */
 }
 
+
 .scroll-container {
     display: flex;
     overflow-x: hidden; /* Nasconde overflow orizzontale */
@@ -380,6 +381,8 @@ display: none;
 transform: none;
 }
 
+
 }
+
 
 
