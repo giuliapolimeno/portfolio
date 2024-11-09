@@ -97,6 +97,7 @@ scrollContainer.addEventListener('touchend', () => {
 
 
 
+
 // Capture the currently enlarged image's URL
 let currentImageUrl = '';
 
@@ -112,13 +113,13 @@ function enlargeImageAtCenter() {
     // Trova l'immagine più vicina al centro dello schermo
     images.forEach(imageWrapper => {
         const imageRect = imageWrapper.getBoundingClientRect();
-        const imageCenter = imageRect.left + imageRect.width / 1;
-        const distance = Math.abs(centerPosition - imageCenter);
+        const imageCenter = imageRect.left + imageRect.width / 2;  // Centro dell'immagine
+        const distance = Math.abs(centerPosition - imageCenter);  // Distanza tra il centro del contenitore e il centro dell'immagine
 
-        // Modifica il margine di tolleranza per dispositivi mobili
-        const tolerance = window.innerWidth <= 768 ? 1000 : 100; // 50px per mobile, 100px per desktop
+        // Modifica il margine di tolleranza per rendere l'ingrandimento più preciso
+        const tolerance = 550;  // Margine di tolleranza ridotto per dispositivi mobili e desktop (puoi regolarlo)
 
-        if (distance < closestDistance && distance <= tolerance) { // Considera solo distanze minori o uguali al margine di tolleranza
+        if (distance < closestDistance && distance <= tolerance) {  // Considera solo immagini abbastanza vicine al centro
             closestDistance = distance;
             closestImage = imageWrapper;
         }
@@ -132,15 +133,12 @@ function enlargeImageAtCenter() {
             lastCenteredImage.querySelector('.image').style.height = '250px';
         }
 
-        // Ingrandisci l'immagine corrente
-        const currentImage = closestImage.querySelector('.image');
-        if (window.innerWidth <= 768) { // Su dispositivi mobili
-            currentImage.style.width = '300px';
-            currentImage.style.height = '350px';
-        } else { // Su dispositivi desktop
-            currentImage.style.width = '500px';
-            currentImage.style.height = '550px';
-        }
+         // Ingrandisci l'immagine corrente solo se non è mobile
+         const currentImage = closestImage.querySelector('.image');
+         if (window.innerWidth > 768) { // Solo su dispositivi desktop
+             currentImage.style.width = '500px';
+             currentImage.style.height = '550px';
+         }
 
         // Aggiorna l'URL dell'immagine corrente per il link della lista
         currentImageUrl = currentImage.src; // Memorizza l'URL dell'immagine ingrandita
@@ -148,7 +146,12 @@ function enlargeImageAtCenter() {
         // Aggiorna l'ultima immagine centrata
         lastCenteredImage = closestImage;
     }
+
+    
 }
+
+
+
 
 
 // Add event listener for the List link

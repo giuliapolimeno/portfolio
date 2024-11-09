@@ -45,8 +45,6 @@ body {
 }
 
 
-
-
 .image-wrapper:hover .caption {
     transform: translateY(-10px); /* Sposta la didascalia verso l'alto di 10px */
     transition: transform 0.3s ease; /* Aggiunge transizione per il movimento */
@@ -60,6 +58,10 @@ body {
   
     transition: width 0.6s ease, height 0.6s ease;
 }
+
+
+
+
 
 
 
@@ -319,12 +321,17 @@ body {
 
 @media (max-width: 768px) {
 
+    .about-conteiner {
+        top: 15vh; /* Sposta il contenuto più in alto */
+    }
+
     /* Rendi l'about-conteiner e il contatto più grande sui dispositivi mobili */
     
 
     .bio-conteiner, .contact-conteiner {
         width: 100%; /* Estendi contenitori a tutta la larghezza dello schermo */
     }
+    
 
     /* Aumenta la dimensione del testo per i link */
     .about-caption {
