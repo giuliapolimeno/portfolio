@@ -322,7 +322,7 @@ body {
 @media (max-width: 768px) {
 
     .about-conteiner {
-        top: 15vh; /* Sposta il contenuto più in alto */
+        top: 11vh; /* Sposta il contenuto più in alto */
     }
 
     /* Rendi l'about-conteiner e il contatto più grande sui dispositivi mobili */
