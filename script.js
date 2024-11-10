@@ -102,7 +102,7 @@ function applyInertia() {
     if (Math.abs(velocity) > 0.01) {
         scrollContainer.scrollLeft += velocity * 20;
         velocity *= 0.95;
-        inertiaTimer = setTimeout(applyInertia, 16);
+        inertiaTimer = setTimeout(applyInertia, 10);
     } else {
         if (window.innerWidth <= 768) {
             snapToCenter();
