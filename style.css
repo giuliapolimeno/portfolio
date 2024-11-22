@@ -228,8 +228,8 @@ body {
     padding: 15px;
     font-family: 'ABCMonumentGrotesk-Light', sans-serif;
     display: inline-block;
-    font-size: clamp(16px, 2vw, 18px);
-    line-height: 20px;
+    font-size: clamp(20px, 2vw, 18px);
+    line-height: 22px;
     margin-bottom: 15vh;
   
 }
@@ -259,7 +259,7 @@ body {
     display: inline-block;
     font-family: 'ABCMonumentGrotesk-Light', sans-serif; /* Font per la freccia */
     text-decoration:underline;
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(18px, 2vw, 18px);
     transition: transform 0.3s ease; /* Transizione per spostamento */
 }
 
@@ -271,7 +271,7 @@ body {
     display: inline-block;
     font-family: 'ABCMonumentGrotesk-Light', sans-serif; /* Font per la freccia */
     text-decoration:underline;
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(18px, 2vw, 18px);
     transition: transform 0.3s ease; /* Transizione per spostamento */
 }
 
@@ -285,7 +285,7 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease; /* Transizione per far apparire la freccia */
     font-family: 'Blur Medium', sans-serif; /* Font per la freccia */
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(18px, 2vw, 18px);
 }
 
 /* Effetto hover per mostrare la freccia e spostare il testo */
@@ -305,7 +305,7 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease; /* Transizione per far apparire la freccia */
     font-family: 'Blur Medium', sans-serif; /* Font per la freccia */
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(18px, 2vw, 18px);
 }
 
 /* Effetto hover  */
