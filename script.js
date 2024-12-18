@@ -175,3 +175,50 @@ window.onload = () => {
     setupInfiniteScroll();
     scrollContainer.addEventListener('scroll', maintainInfiniteScroll);
 };
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollMessage = document.getElementById("scrollMessage");
+
+    let hasScrolled = false;
+
+    const hideScrollMessage = () => {
+        if (!hasScrolled) {
+            hasScrolled = true;
+            scrollMessage.classList.add("hidden");
+        }
+    };
+
+    // Nascondi il messaggio quando l'utente scorre
+    window.addEventListener("scroll", hideScrollMessage);
+
+    // Se l'utente inizia a interagire con la pagina usando il mouse (ad esempio, scorre con la rotella)
+    window.addEventListener("wheel", hideScrollMessage);
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const scrollMessage = document.getElementById("scrollMessage");
+
+    // Funzione per rilevare dispositivi touch
+    function isTouchDevice() {
+        return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    }
+
+    // Nascondi il messaggio sui dispositivi touch
+    if (isTouchDevice()) {
+        scrollMessage.style.display = "none";
+    }
+
+    // Event listener per nascondere il messaggio dopo il primo scroll
+    let hasScrolled = false;
+    window.addEventListener("scroll", () => {
+        if (!hasScrolled) {
+            scrollMessage.style.opacity = "0"; // Nascondi con transizione
+            setTimeout(() => scrollMessage.style.display = "none", 500); // Rimuovi completamente
+            hasScrolled = true;
+        }
+    });
+});

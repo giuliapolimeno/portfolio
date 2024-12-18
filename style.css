@@ -391,5 +391,32 @@ transform: none;
 
 }
 
+.scroll-message {
+    position: absolute; /* Posiziona il messaggio sopra il carosello */
+    top: 15%; /* Posizionalo sopra le immagini */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2000; /* Sopra le immagini */
+    font-family: 'Blur Medium', sans-serif;
+    font-size: 18px;
+    color:  #e7e7e7;
+    padding: 10px 20px;
+    border-radius: 8px;
+    animation: blink 1s step-start infinite; /* Lampeggia */
+   
+}
 
+/* Animazione lampeggiante */
+@keyframes blink {
+    50% {
+        opacity: 0; /* Lampeggia scomparendo */
+    }
+}
 
+/* Nascondi il messaggio quando viene aggiunta la classe 'hidden' */
+.scroll-message.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Impedisce interazioni con l'elemento */
+}
