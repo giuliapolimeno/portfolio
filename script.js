@@ -23,6 +23,7 @@ function setupInfiniteScroll() {
     const images = document.querySelectorAll('.image-wrapper');
     const imageCount = images.length;
 
+    // Clona le immagini per creare l'effetto di scorrimento infinito
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < imageCount; j++) {
             const clone = images[j].cloneNode(true);
@@ -31,14 +32,17 @@ function setupInfiniteScroll() {
         }
     }
 
-    // Posiziona lo scroll al centro
-    scrollContainer.scrollLeft = scrollContainer.scrollWidth / 2;
-
-    // Nei dispositivi mobili, applica lo "snap" iniziale
+    // Modifica il comportamento iniziale per dispositivi mobili
     if (window.innerWidth <= 768) {
-        snapToCenter(); // Centra subito un'immagine all'avvio sui dispositivi mobili
+        // Sposta il carosello verso sinistra, così che la prima immagine sia quella 1
+        scrollContainer.scrollLeft = scrollContainer.scrollWidth / 3; // Inizializza il carosello verso la prima immagine
+        snapToCenter(); // Funzione per centrare l'immagine visibile al centro
+    } else {
+        // Nei dispositivi più grandi, il carosello è già centrato
+        scrollContainer.scrollLeft = scrollContainer.scrollWidth / 2;
     }
 }
+
 
 function maintainInfiniteScroll() {
     const images = document.querySelectorAll('.image-wrapper');
