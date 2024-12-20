@@ -35,7 +35,7 @@ function setupInfiniteScroll() {
     // Modifica il comportamento iniziale per dispositivi mobili
     if (window.innerWidth <= 768) {
         // Sposta il carosello verso sinistra, così che la prima immagine sia quella 1
-        scrollContainer.scrollLeft = scrollContainer.scrollWidth / 3; // Inizializza il carosello verso la prima immagine
+        scrollContainer.scrollLeft = scrollContainer.scrollWidth / 3.1; // Inizializza il carosello verso la prima immagine
         snapToCenter(); // Funzione per centrare l'immagine visibile al centro
     } else {
         // Nei dispositivi più grandi, il carosello è già centrato
