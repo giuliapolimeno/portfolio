@@ -1,425 +1,1594 @@
-/* Carica il font Vevey-HumanKind */
-@font-face {
-    font-family: 'Blur Medium';
-    src: url('fonts/Blur Medium.otf') format('opentype');
-}
+/* =================================
+   FONT
+================================= */
 
 @font-face {
-    font-family: 'Blur Light';
-    src: url('fonts/BlurWeb-Light W03 Regular.ttf') format('opentype');
+  font-family: "Suisse Int'l";
+  src: url("fonts/SuisseIntl-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-@font-face {
-    font-family: 'ABCMonumentGrotesk-Light';
-    src: url('fonts/ABCMonumentGrotesk-Light-Trial.otf') format('opentype');
+
+/* =================================
+   VARIABLES
+================================= */
+
+:root {
+  --margin: 10px;
+
+  --font-size: 16px;
+  --line-height: 16px;
+
+  --text: #111;
+  --accent: #1612ff;
+
+  --background: #fff;
+  --drawer-background: rgb(255, 253, 253);
+
+  --strip-height: calc(100vh / 3);
+  --drawer-closed-width: 8px;
+
+  --label-col: 170px;
+
+  --drawer-duration: 0.45s;
+  --drawer-ease: cubic-bezier(.76, 0, .24, 1);
+
+  --index-column-gap: 40px;
+  --index-row-gap: 20px;
+
+  --index-max-title-width: 260px;
+
+  --mobile-content-gap: 20px;
 }
 
+
+/* =================================
+   RESET
+================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: var(--background);
+  color: var(--text);
+
+  font-family: "Suisse Int'l", Arial, sans-serif;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-weight: 500;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  background: none;
+
+  color: inherit;
+
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+img,
+video {
+  display: block;
+}
+
+
+/* =================================
+   GLOBAL LINKS
+================================= */
+
+a {
+  color: var(--text);
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+
+/* =================================
+   SITE
+================================= */
+
+.site {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  overflow: hidden;
+}
+
+
+/* =================================
+   LEFT PANEL
+================================= */
+
+.left-panel {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+
+/* =================================
+   PROJECT HEADING
+================================= */
+
+.project-heading {
+  position: absolute;
+
+  top: var(--margin);
+  left: var(--margin);
+  right: var(--margin);
+
+  display: grid;
+
+  grid-template-columns:
+    var(--label-col)
+    minmax(0, 1fr);
+
+  align-items: start;
+}
+
+#projectNumber {
+  display: block;
+}
+
+.project-heading-content {
+  min-width: 0;
+}
+
+#projectTitle {
+  margin: 0;
+
+  font: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+
+/* =================================
+   PROJECT INFO BUTTON
+================================= */
+
+#openProjectInfo {
+  position: fixed;
+
+  top: var(--margin);
+  right: calc(50% + var(--margin));
+
+  z-index: 30;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--accent);
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    color 0.15s ease,
+    opacity 0.15s ease,
+    visibility 0.15s ease;
+}
+
+#openProjectInfo:hover {
+  color: var(--text);
+}
+
+
+/*
+  Quando Project Info è aperto,
+  il +Info esterno scompare.
+*/
+
+body.project-info-open
+#openProjectInfo {
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+
+/* =================================
+   ABOUT BUTTON — DESKTOP
+================================= */
+
+#openAboutExternal {
+  position: fixed;
+
+  right: calc(50% + var(--margin));
+  bottom: var(--margin);
+
+  z-index: 30;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--accent);
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    color 0.15s ease,
+    opacity 0.15s ease,
+    visibility 0.15s ease;
+}
+
+#openAboutExternal:hover {
+  color: var(--text);
+}
+
+
+/*
+  Quando About è aperto,
+  l'About esterno scompare.
+*/
+
+body.about-open
+#openAboutExternal {
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+
+/* =================================
+   SITE NAME
+================================= */
+
+.site-name {
+  position: absolute;
+
+  left: var(--margin);
+  bottom: var(--margin);
+}
+
+
+/* =================================
+   SITE FOOTER
+================================= */
+
+.site-footer {
+  position: absolute;
+
+  left: calc(
+    var(--margin) +
+    var(--label-col)
+  );
+
+  bottom: var(--margin);
+}
+
+
+/* =================================
+   RIGHT PANEL
+================================= */
+
+.right-panel {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+
+/* =================================
+   CAROUSEL
+================================= */
+
+.carousel {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+
+  scroll-behavior: auto;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =================================
+   MEDIA
+================================= */
+
+.media-item {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  line-height: 0;
+}
+
+.media-item img,
+.media-item video {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+}
+
+
+/* =================================
+   EXTERNAL VIDEO LINK
+================================= */
+
+.media-external-link {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 10;
+
+  display: block;
+
+  width: fit-content;
+
+  padding: var(--margin);
+
+  background: var(--background);
+
+  line-height: var(--line-height);
+}
+
+
+/* =================================
+   PLACEHOLDERS
+================================= */
+
+.media-placeholder {
+  width: 100%;
+  min-height: 70vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eee;
+
+  line-height: var(--line-height);
+}
+
+
+/* =================================
+   THUMBNAILS
+================================= */
+
+/*
+  DESKTOP:
+  ora sono sovrapposte al carosello,
+  in alto a sinistra.
+*/
+
+.thumbnails {
+  position: fixed;
+
+  top: var(--margin);
+
+  left: calc(
+    50% +
+    var(--margin)
+  );
+
+  right: auto;
+  bottom: auto;
+
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 40px;
+
+  gap: 0;
+
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+/* =================================
+   THUMBNAIL ITEM
+================================= */
+
+.thumbnail {
+  position: relative;
+
+  display: block;
+
+  width: 40px;
+  height: auto;
+
+  flex: 0 0 auto;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  overflow: hidden;
+
+  opacity: 1;
+
+  line-height: 0;
+}
+
+
+/* =================================
+   THUMBNAIL MEDIA
+================================= */
+
+.thumbnail img,
+.thumbnail video,
+.thumbnail canvas {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: none;
+
+  transition: filter 0.15s ease;
+}
+
+
+/* =================================
+   BLUE THUMBNAIL OVERLAY
+================================= */
+
+.thumbnail::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: var(--accent);
+
+  mix-blend-mode: multiply;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 0.15s ease;
+}
+
+
+/* =================================
+   DESKTOP HOVER
+================================= */
+
+.thumbnail:hover img,
+.thumbnail:hover video,
+.thumbnail:hover canvas {
+  filter:
+    grayscale(1)
+    contrast(1000%);
+}
+
+.thumbnail:hover::after {
+  opacity: 1;
+}
+
+
+/* =================================
+   ACTIVE THUMBNAIL
+================================= */
+
+.thumbnail.is-active img,
+.thumbnail.is-active video,
+.thumbnail.is-active canvas {
+  filter:
+    grayscale(1)
+    contrast(1000%);
+}
+
+.thumbnail.is-active::after {
+  opacity: 1;
+}
+
+
+/* =================================
+   THUMBNAIL PLACEHOLDER
+================================= */
+
+.thumbnail-placeholder {
+  width: 40px;
+
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #ddd;
+
+  font-size: 8px;
+  line-height: 8px;
+}
+
+
+/* =================================
+   DRAWER
+================================= */
+
+.drawer {
+  position: fixed;
+
+  top: 50%;
+  left: var(--margin);
+
+  z-index: 100;
+
+  width: var(--drawer-closed-width);
+  height: var(--strip-height);
+
+  transform: translateY(-50%);
+
+  overflow: hidden;
+
+  background: var(--accent);
+
+  cursor: pointer;
+
+  transition:
+    width var(--drawer-duration)
+      var(--drawer-ease),
+
+    background-color
+      0.10s ease 0.35s;
+}
+
+.drawer.is-open {
+  width: calc(
+    100vw -
+    var(--margin) * 2
+  );
+
+  background:
+    var(--drawer-background);
+
+  cursor: default;
+
+  transition:
+    width var(--drawer-duration)
+      var(--drawer-ease),
+
+    background-color
+      0.20s ease 0.08s;
+}
+
+
+/* =================================
+   DRAWER INTRO
+================================= */
+
+.drawer.is-intro {
+  width: calc(
+    100vw -
+    var(--margin) * 2
+  );
+
+  background:
+    var(--drawer-background);
+
+  transition: none;
+}
+
+.drawer.is-intro
+.drawer-content {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transition: none;
+}
+
+
+/* =================================
+   DRAWER CONTENT
+================================= */
+
+.drawer-content {
+  position: absolute;
+
+  inset: 0;
+
+  width: calc(
+    100vw -
+    var(--margin) * 2
+  );
+
+  height: 100%;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.12s ease;
+}
+
+.drawer.is-open
+.drawer-content {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transition-delay: 0.12s;
+}
+
+
+/* =================================
+   DRAWER VIEWS
+================================= */
+
+.drawer-view {
+  position: absolute;
+
+  inset: 0;
+
+  display: none;
+
+  pointer-events: none;
+}
+
+.drawer-view.is-active {
+  display: block;
+
+  pointer-events: auto;
+}
+
+
+/* =================================
+   DRAWER SWITCH
+================================= */
+
+.drawer-switch {
+  position: absolute;
+
+  top: var(--margin);
+  right: var(--margin);
+
+  z-index: 5;
+
+  color: var(--accent);
+
+  transition: color 0.15s ease;
+}
+
+.drawer-switch:hover {
+  color: var(--text);
+}
+
+
+/* =================================
+   ALL PROJECTS
+================================= */
+
+.projects-grid {
+  position: absolute;
+
+  top: var(--margin);
+  left: var(--margin);
+  right: 120px;
+  bottom: var(--margin);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: flex-start;
+  align-content: flex-start;
+
+  column-gap:
+    var(--index-column-gap);
+
+  row-gap:
+    var(--index-row-gap);
+}
+
+
+/* =================================
+   PROJECT INDEX ITEM
+================================= */
+
+.project-index-item {
+  display: grid;
+
+  grid-template-columns:
+    max-content
+    max-content;
+
+  column-gap: 5px;
+
+  width: max-content;
+
+  align-items: start;
+
+  color: var(--text);
+
+  cursor: pointer;
+}
+
+.index-number {
+  color: var(--text);
+}
+
+.index-content {
+  min-width: 0;
+
+  max-width:
+    var(--index-max-title-width);
+}
+
+.index-title {
+  width: auto;
+  max-width: 100%;
+
+  color: var(--text);
+}
+
+
+/* =================================
+   INDEX ACTIONS
+================================= */
+
+.index-action-container {
+  min-height:
+    var(--line-height);
+}
+
+.index-action {
+  display: block;
+
+  color: var(--accent);
+
+  line-height: inherit;
+
+  transition:
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.index-info:hover {
+  color: var(--text);
+}
+
+.index-view {
+  opacity: 0;
+
+  pointer-events: auto;
+
+  color: var(--accent);
+
+  transition:
+    opacity 0.15s ease,
+    color 0.15s ease;
+}
+
+.project-index-item:not(.is-active):hover
+.index-view {
+  opacity: 1;
+}
+
+.index-view:hover {
+  color: var(--text);
+}
+
+
+/* =================================
+   ABOUT
+================================= */
+
+.about-label {
+  position: absolute;
+
+  top: var(--margin);
+  left: var(--margin);
+
+  z-index: 5;
+}
+
+.about-layout {
+  position: absolute;
+
+  top: var(--margin);
+  left: 0;
+  right: var(--margin);
+  bottom: var(--margin);
+
+  display: grid;
+
+  grid-template-columns:
+    var(--label-col)
+    minmax(0, 1fr);
+
+  align-items: start;
+}
+
+.about-copy {
+  grid-column: 2;
+
+  max-width: 1050px;
+}
+
+.about-links {
+  margin-top: calc(
+    var(--line-height) * 2
+  );
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.about-contact-link {
+  text-decoration: none;
+}
+
+
+/* =================================
+   PROJECT INFO
+================================= */
+
+.project-info-label {
+  position: absolute;
+
+  top: var(--margin);
+  left: var(--margin);
+
+  z-index: 5;
+}
+
+.project-info-layout {
+  position: absolute;
+
+  top: var(--margin);
+  left: 0;
+  right: var(--margin);
+  bottom: var(--margin);
+
+  display: grid;
+
+  grid-template-columns:
+    var(--label-col)
+    minmax(0, 1fr);
+
+  align-items: start;
+}
+
+.project-info-main {
+  grid-column: 2;
+
+  max-width: 1050px;
+}
+
+
+/* =================================
+   PROJECT META
+================================= */
+
+.project-meta {
+  margin-top: calc(
+    var(--line-height) * 2
+  );
+}
+
+.project-meta p {
+  margin: 0;
+}
+
+
+/* =================================
+   DRAWER FOOTER
+================================= */
+
+.drawer-footer {
+  position: absolute;
+
+  left: var(--margin);
+  bottom: var(--margin);
+
+  color: var(--text);
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.drawer-footer.is-visible {
+  opacity: 1;
+}
+
+
+/* =================================
+   DRAWER OPEN STATE
+================================= */
+
+body.drawer-open
+.thumbnails {
+  pointer-events: none;
+}
+
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1000px) {
+
+  :root {
+    --label-col: 130px;
+  }
+
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+  :root {
+    --margin: 10px;
+
+    --label-col: 45px;
+
+    --mobile-header-height: 34px;
+
+    --mobile-footer-height: 34px;
+
+    --mobile-drawer-strip-height: 18px;
+
+    --mobile-content-top: 52px;
+  }
+
+
+  /* ===============================
+     SITE
+  =============================== */
+
+  .site {
+    position: relative;
+
+    display: block;
+
     width: 100vw;
-    background-color: #ffffff;
-    margin: 0;
-    overflow: hidden; /* Nasconde overflow verticale */
-}
+    height: 100dvh;
+
+    overflow: hidden;
+  }
 
 
-.scroll-container {
-    display: flex;
-    overflow-x: hidden; /* Nasconde overflow orizzontale */
-    overflow-y: auto; /* Consente lo scroll verticale */
-    width: 100vw;
-    height: 100vh; /* Imposta l'altezza del contenitore */
-    position:relative;
-    top: 22vh; 
-    scroll-behavior:auto; /* Disabilita lo smooth scroll per evitare salti */
-    padding-top: 8px;
-}
-.image-wrapper {
-    display: flex;
-    flex-direction: column; /* Imposta la direzione verticale per immagini e didascalie */
-    align-items: flex-start; /* Allinea a sinistra le didascalie */
-    transition: transform 0.5s ease; /* Aggiunge transizione per l'ingrandimento */
-}
+  /* ===============================
+     HEADER
+  =============================== */
 
+  .left-panel {
+    position: fixed;
 
-.image-wrapper:hover .caption {
-    transform: translateY(-10px); /* Sposta la didascalia verso l'alto di 10px */
-    transition: transform 0.3s ease; /* Aggiunge transizione per il movimento */
-}
+    top: 0;
+    left: 0;
 
-.image {
-    flex-shrink: 0; /* Evita che le immagini si comprimano */
-    object-fit: cover;
-    width: 200px;
-    height: 250px;
-  
-    transition: width 0.6s ease, height 0.6s ease;
-}
+    z-index: 60;
 
-
-
-
-
-
-
-.caption {
-    margin-bottom: 0px; /* Spazio sotto la didascalia */
-    font-size: 16px;
-    color: #000; /* Colore del testo della didascalia */
-    width: 100%; /* Larghezza della didascalia per estendersi su tutta l'immagine */
-    text-align: left; /* Allinea il testo a sinistra */
-    font-family: 'Blur Medium', sans-serif; /* Applica il font */
-    z-index: 20000; 
-    text-decoration: none; 
-    letter-spacing: -0.5px;
-}
-
-/* HEADER */
-
-       /* HEADER */
-
- 
-    
-    header {
-        position: fixed; /* Mantiene l'intestazione fissa in cima alla pagina */
-        top: 0;
-        left: 0;
-        right: 0;
-        font-family: 'Vevey-HumanKind', sans-serif; /* Applica il font */
-        z-index: 1000; /* Assicura che l'intestazione sia sopra il contenuto */
-        font-size: 18px; /* Dimensione del font */
-        font-family: 'Blur Medium', sans-serif; /* Applica il font */
-        letter-spacing: -0.5px;
-    }
-    
-    a {
-        text-decoration: none;
-    }
-    
-    .header-container {
-        display: flex; /* Usa flexbox per allineare gli elementi */
-        justify-content: space-between; /* Spazia gli elementi in modo che siano ai lati */
-        align-items: center; 
-        padding: 15px; /* Spazio interno per l'intestazione */
-        max-width: 97%; /* Imposta una larghezza massima se desiderato */
-        margin-left: 5px;
-         
-    }
-    
-    .left {
-        flex: 1; /* Occupare lo spazio a sinistra */
-    }
-    
-    .center {
-        text-align: center; /* Left align */
-        justify-content: center; /* Allinea Carousel e List al centro orizzontalmente */
-        align-items: center; 
-        flex: 1; /* Equal space for all columns */
-        display: flex;
-    } 
-    
-    .right {
-        flex: 1; /* Occupare lo spazio a destra */
-        text-align: right; /* Allinea il testo a destra */
-    }
-
-@media (max-width: 768px) {
-
-    .left {
-        text-align: left; /* Left align */
-        flex: 1; /* Equal space for all columns */
-    }
-
-    .center {
-        text-align: center; /* Left align */
-        justify-content: center; /* Allinea Carousel e List al centro orizzontalmente */
-        align-items: center; 
-        flex: 1.1; /* Equal space for all columns */
-        display: flex;
-        
-    } 
-
-    .right {
-        text-align: right; /* Left align */
-        flex: 0.9; /* Equal space for all columns */    
-    }
- 
-}
-
-
-
-.footer-container{
-    display: flex;
-    position: absolute; /* Posiziona il testo in modo assoluto */
-    bottom: -3.5vh; /* Distanza dal basso */
-    width: 100%; /* Occupa tutta la larghezza dello schermo */
-    z-index: -1000; 
-    justify-content: center;
-    left: -4px;
-}
-
-
-.footer-text {
-    left: 0; /* Allinea a sinistra */
-    width: 100%; /* Occupa tutta la larghezza dello schermo */
-    text-align: center; /* Centra il testo */
-    font-family: 'Blur Medium', sans-serif; /* Applica il font */
-    font-size: 13.5vw; /* Dimensione del font */  
-    letter-spacing: -0.9vw;  
-    color: #f0f0f0;
-}
-
-@media (max-width: 768px) {
-    .footer-text {
-        display: flex;
-        flex-direction: column; /* Imposta la direzione verticale */
-        font-size: 21vw; /* Modifica la dimensione del font per dispositivi mobili */
-    }
-    
-    .footer-text .first-name {
-        display: block; /* Mostra Giulia nella prima riga */
-        margin-bottom: -35px; /* Riduci la distanza sotto "Giulia" */
-    }
-    
-    .footer-text .last-name {
-        display: block; /* Mostra Polimeno nella seconda riga */
-        margin-bottom: 20px; /* Riduci la distanza sotto "Giulia" */
-    }
-}
-
-
-/* Nuova classe per la navigazione */
-.navigation {
-    position: absolute; /* Posiziona la navigazione in modo assoluto */
-    left: 20px; /* Distanza da sinistra */
-    bottom: 180px; /* Distanza dal basso */
-    z-index: 1000; /* Assicura che la navigazione sia sopra il contenuto */
-    font-family: 'Blur Medium', sans-serif; /* Applica il font */
-    font-size: 18px; /* Dimensione del font */
-}
-
-.nav-link {
-    color: #e7e7e7; /* Colore grigio per i link inattivi */
-    margin-right: 5px; /* Spazio tra i link */
-    text-decoration: none;
-}
-
-.nav-link.active {
-    color: #000; /* Colore nero per i link attivi */
-    
-}
-
-.nav-link:hover {
-    color: #000000; /* Colore dei link quando il mouse ci passa sopra */
-}
-
-
-
-
-/* ABOUT */
-.about-conteiner{
     width: 100%;
-    position: sticky;
-    top: 27vh;
-    display: flex;
-    padding: 15px;
-    font-family: 'ABCMonumentGrotesk-Light', sans-serif;
-    display: inline-block;
-    font-size: clamp(20px, 2vw, 18px);
-    line-height: 22px;
-    margin-bottom: 15vh;
-  
-}
 
-.about-caption {
-    width: 50%;
-    justify-content: flex-start;
+    height:
+      var(--mobile-header-height);
 
-}
+    background:
+      var(--background);
 
-.title {
-    font-size: clamp(40px, 14vw, 60px); /* Responsive font size with a minimum of 20px and a maximum of 50px */
-    color: #000;
-    font-family: 'Blur Medium', sans-serif; /* Applica il font */
-    letter-spacing: -5px;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    
-}
+    overflow: visible;
+
+    pointer-events: none;
+  }
 
 
-/* Definisci una classe base per i link dei contatti */
-.contact-conteiner a {
-    position: relative;
-    color: black;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'ABCMonumentGrotesk-Light', sans-serif; /* Font per la freccia */
-    text-decoration:underline;
-    font-size: clamp(18px, 2vw, 18px);
-    transition: transform 0.3s ease; /* Transizione per spostamento */
-}
-
-/* Definisci una classe base per i link dei contatti */
-.about-conteiner a {
-    position: relative;
-    color: black;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'ABCMonumentGrotesk-Light', sans-serif; /* Font per la freccia */
-    text-decoration:underline;
-    font-size: clamp(18px, 2vw, 18px);
-    transition: transform 0.3s ease; /* Transizione per spostamento */
-}
-
-
-
-
-/* Aggiungi la freccina all'inizio della parola quando si passa sopra il link */
-.contact-conteiner a::before {
+  .project-heading {
     position: absolute;
-    left: -20px; /* Posiziona la freccia prima del testo */
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transizione per far apparire la freccia */
-    font-family: 'Blur Medium', sans-serif; /* Font per la freccia */
-    font-size: clamp(18px, 2vw, 18px);
-}
 
-/* Effetto hover per mostrare la freccia e spostare il testo */
-.contact-conteiner a:hover::before {
-    opacity: 1;
-    transform: translateX(-5px); /* Sposta leggermente la freccia */
-}
+    top: var(--margin);
+    left: var(--margin);
+    right: var(--margin);
 
-.contact-conteiner a:hover {
-    transform: translateX(20px); /* Sposta il testo verso destra */
-}
+    display: grid;
 
-/* quando si passa sopra il link */
-.about-conteiner a::before {
-    position: absolute;
-    left: -20px; /* Posiziona la freccia prima del testo */
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transizione per far apparire la freccia */
-    font-family: 'Blur Medium', sans-serif; /* Font per la freccia */
-    font-size: clamp(18px, 2vw, 18px);
-}
+    grid-template-columns:
+      var(--label-col)
+      minmax(0, 1fr);
 
-/* Effetto hover  */
-.about-conteiner a:hover::before {
-    opacity: 1;
-    transform: translateX(-5px); /* Sposta leggermente la freccia */
-}
+    align-items: start;
 
-.about-conteiner a:hover {
-    transform: translateX(20px); /* Sposta il testo verso destra */
-}
+    pointer-events: auto;
+  }
 
 
-@media (max-width: 768px) {
+  .project-heading-content {
+    min-width: 0;
 
-    .about-conteiner {
-        top: 11vh; /* Sposta il contenuto più in alto */
-    }
+    padding-right: 70px;
+  }
 
-    /* Rendi l'about-conteiner e il contatto più grande sui dispositivi mobili */
-    
 
-    .bio-conteiner, .contact-conteiner {
-        width: 100%; /* Estendi contenitori a tutta la larghezza dello schermo */
-    }
-    
+  #projectTitle {
+    white-space: nowrap;
 
-    /* Aumenta la dimensione del testo per i link */
-    .about-caption {
-        width: 100%;
-        justify-content: flex-start;
+    overflow: hidden;
 
-    }
+    text-overflow: ellipsis;
+  }
 
-    /* Aggiungi padding ai link */
-    .contact-conteiner a {
-        display: inline-block; /* Forza i link a comportarsi come blocchi */
-    }
-     
 
-    
-    /* Aggiungi la freccina all'inizio della parola quando si passa sopra il link */
-.contact-conteiner a::before {
-   
+  #openProjectInfo {
+    position: fixed;
+
+    top: var(--margin);
+    right: var(--margin);
+
+    z-index: 70;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--accent);
+
+    pointer-events: auto;
+  }
+
+
+  /*
+    Nessun About esterno
+    nella versione mobile.
+  */
+
+  #openAboutExternal {
     display: none;
-
-}
-
-/* Effetto hover per mostrare la freccia e spostare il testo */
-.contact-conteiner a:hover::before {
-   display: none;
-}
-
-.contact-conteiner a:hover {
-    transform: none;
-}
+  }
 
 
+  /* ===============================
+     MAIN MEDIA
+  =============================== */
 
- /* Aggiungi padding ai link */
- .about-conteiner a {
-    display: inline-block; /* Forza i link a comportarsi come blocchi */
-}
- 
+  .right-panel {
+    position: absolute;
 
+    top:
+      var(--mobile-header-height);
 
-/* Aggiungi la freccina all'inizio della parola quando si passa sopra il link */
-.about-conteiner a::before {
+    left: 0;
 
-display: none;
+    width: 100vw;
 
-}
+    height: calc(
+      100dvh
+      - var(--mobile-header-height)
+      - var(--mobile-footer-height)
+      - var(--mobile-drawer-strip-height)
+    );
 
-/* Effetto hover per mostrare la freccia e spostare il testo */
-.about-conteiner a:hover::before {
-display: none;
-}
-
-.about-conteiner a:hover {
-transform: none;
-}
-
-
-}
+    overflow: hidden;
+  }
 
 
+  .carousel {
+    position: absolute;
 
-.scroll-message {
-    position: absolute; /* Posiziona il messaggio sopra il carosello */
-    top: 15%; /* Posizionalo sopra le immagini */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 2000; /* Sopra le immagini */
-    font-family: 'Blur Medium', sans-serif;
-    font-size: 16px;
-    color:  #e7e7e7;
-    padding: 10px 20px;
-    border-radius: 8px;
-    animation: blink 1s step-start infinite; /* Lampeggia */
-   
-}
+    inset: 0;
 
-/* Animazione lampeggiante */
-@keyframes blink {
-    50% {
-        opacity: 0; /* Lampeggia scomparendo */
-    }
-}
+    width: 100%;
+    height: 100%;
 
-/* Nascondi il messaggio quando viene aggiunta la classe 'hidden' */
-.scroll-message.hidden {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling:
+      touch;
+
+    scroll-behavior: auto;
+  }
+
+
+  /* ===============================
+     THUMBNAILS
+  =============================== */
+
+  .thumbnails {
+    position: fixed;
+
+    top: calc(
+      var(--mobile-header-height)
+      + var(--margin)
+    );
+
+    left: var(--margin);
+
+    right: auto;
+    bottom: auto;
+
+    z-index: 50;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    width: 40px;
+
+    gap: 0;
+
+    overflow: visible;
+
+    opacity: 1;
+
+    pointer-events: auto;
+  }
+
+
+  .thumbnail {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    width: 40px;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+  }
+
+
+  .thumbnail:hover img,
+  .thumbnail:hover video,
+  .thumbnail:hover canvas {
+    filter: none;
+  }
+
+  .thumbnail:hover::after {
     opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none; /* Impedisce interazioni con l'elemento */
-}
+  }
 
+
+  .thumbnail:active img,
+  .thumbnail:active video,
+  .thumbnail:active canvas {
+    filter:
+      grayscale(1)
+      contrast(1000%);
+  }
+
+  .thumbnail:active::after {
+    opacity: 1;
+  }
+
+
+  .thumbnail.is-active img,
+  .thumbnail.is-active video,
+  .thumbnail.is-active canvas {
+    filter:
+      grayscale(1)
+      contrast(1000%);
+  }
+
+  .thumbnail.is-active::after {
+    opacity: 1;
+  }
+
+
+  /* ===============================
+     WHITE DRAWER STRIP
+  =============================== */
+
+  .site::after {
+    content: "";
+
+    position: fixed;
+
+    left: 0;
+    right: 0;
+
+    bottom:
+      var(--mobile-footer-height);
+
+    z-index: 55;
+
+    height:
+      var(--mobile-drawer-strip-height);
+
+    background:
+      var(--background);
+
+    pointer-events: none;
+  }
+
+
+  /* ===============================
+     DRAWER
+  =============================== */
+
+  .drawer {
+    position: fixed;
+
+    top: auto;
+
+    left: var(--margin);
+    right: var(--margin);
+
+    bottom:
+      var(--mobile-footer-height);
+
+    z-index: 100;
+
+    width: calc(
+      100vw
+      - var(--margin) * 2
+    );
+
+    height: 8px;
+
+    transform: none;
+
+    overflow: hidden;
+
+    background:
+      var(--accent);
+
+    cursor: pointer;
+
+    transition:
+      height
+        var(--drawer-duration)
+        var(--drawer-ease),
+
+      background-color
+        0.10s ease 0.35s;
+  }
+
+
+  .drawer.is-open {
+    height: 50dvh;
+
+    background:
+      var(--drawer-background);
+
+    cursor: default;
+
+    transition:
+      height
+        var(--drawer-duration)
+        var(--drawer-ease),
+
+      background-color
+        0.20s ease 0.08s;
+  }
+
+
+  .drawer.is-intro {
+    height: 50dvh;
+
+    background:
+      var(--drawer-background);
+
+    transition: none;
+  }
+
+
+  .drawer-content {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  /* ===============================
+     DRAWER TOP
+  =============================== */
+
+  .about-label,
+  .project-info-label {
+    position: absolute;
+
+    top: var(--margin);
+    left: var(--margin);
+
+    z-index: 5;
+  }
+
+
+  .drawer-switch {
+    position: absolute;
+
+    top: var(--margin);
+    right: var(--margin);
+  }
+
+
+  /* ===============================
+     ALL PROJECTS
+  =============================== */
+
+  .projects-grid {
+    position: absolute;
+
+    top:
+      var(--mobile-content-top);
+
+    left: var(--margin);
+    right: var(--margin);
+
+    bottom: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    justify-content: flex-start;
+    align-content: flex-start;
+
+    gap: 2px;
+
+    overflow-y: auto;
+  }
+
+
+  .project-index-item {
+    display: grid;
+
+    grid-template-columns:
+      max-content
+      minmax(0, 1fr);
+
+    column-gap: 5px;
+
+    width: 100%;
+
+    align-items: start;
+  }
+
+
+  .index-content {
+    width: 100%;
+
+    max-width: none;
+  }
+
+
+  .index-title {
+    line-height:
+      var(--line-height);
+  }
+
+
+  .index-action-container {
+    min-height: 0;
+
+    line-height:
+      var(--line-height);
+  }
+
+
+  .project-index-item.is-active {
+    margin-bottom: 2px;
+  }
+
+
+  .index-view {
+    display: none;
+  }
+
+
+  /* ===============================
+     ABOUT
+  =============================== */
+
+  .about-layout {
+    position: absolute;
+
+    top:
+      var(--mobile-content-top);
+
+    left: var(--margin);
+    right: var(--margin);
+
+    bottom: 55px;
+
+    display: block;
+
+    overflow-y: auto;
+  }
+
+
+  .about-copy {
+    max-width: none;
+  }
+
+
+  /* ===============================
+     PROJECT INFO
+  =============================== */
+
+  .project-info-layout {
+    position: absolute;
+
+    top:
+      var(--mobile-content-top);
+
+    left: var(--margin);
+    right: var(--margin);
+
+    bottom: 55px;
+
+    display: block;
+
+    overflow-y: auto;
+  }
+
+
+  .project-info-main {
+    max-width: none;
+  }
+
+
+  /* ===============================
+     DRAWER FOOTER
+  =============================== */
+
+  .drawer-footer {
+    left: var(--margin);
+
+    bottom: var(--margin);
+  }
+
+
+  /* ===============================
+     MOBILE FOOTER
+  =============================== */
+
+  .site-name,
+  .site-footer {
+    display: flex;
+
+    position: fixed;
+
+    bottom: 0;
+
+    z-index: 80;
+
+    width: auto;
+
+    height:
+      var(--mobile-footer-height);
+
+    margin: 0;
+    padding: 0;
+
+    align-items: center;
+
+    line-height:
+      var(--line-height);
+
+    pointer-events: none;
+  }
+
+
+  .site-name::before {
+    content: "";
+
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: -1;
+
+    height:
+      var(--mobile-footer-height);
+
+    background:
+      var(--background);
+  }
+
+
+  .site-name {
+    left: var(--margin);
+    right: auto;
+
+    text-align: left;
+  }
+
+
+  .site-footer {
+    left: auto;
+    right: var(--margin);
+
+    justify-content: flex-end;
+
+    text-align: right;
+  }
+
+}
