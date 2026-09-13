@@ -152,7 +152,7 @@ const projects = [
        {
         id: "tree-10",
         type: "image",
-        src: "projects/AILANTO/TREE10.png"
+        src: "projects/AILANTO/TREE10.jpg"
       },
 
 
