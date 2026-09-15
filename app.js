@@ -649,7 +649,7 @@ const projects = [
       "[UX UI Design]<br>[Motion Design]",
 
     description:
-      "Developed during an Interaction Design course focused on togetherness and inspiration, U-TURN is an app designed to challenge the idea that it is ever too late to begin a new educational, professional or personal path. Its visual identity revolves around the hourglass, reinterpreted as a symbol of progress rather than passing time. Based on user research and interviews, the app supports beginners in approaching new skills by tracking progress through completed tasks rather than time spent, combining personal feedback, tailored content and connections with users following similar paths. Alongside the interface design, I developed the motion direction and promotional video for the app, translating its visual system into movement. The animation builds on the hourglass metaphor and the interface’s graphic language to communicate U-TURN’s core idea through rhythm, transitions and interactions, turning the product experience into a concise visual narrative.",
+      "Developed during an Interaction Design course focused on togetherness and inspiration, U-TURN is an app designed to challenge the idea that it is ever too late to begin a new path. Its visual identity revolves around the hourglass, reinterpreted as a symbol of progress rather than passing time. Based on user research and interviews, the app supports beginners in approaching new skills by tracking progress through completed tasks rather than time spent. Alongside the interface design, I developed the motion direction and promotional video for the app. The animation builds on the hourglass metaphor and the interface’s graphic language to communicate U-TURN’s core idea.",
 
     year: "2024",
 

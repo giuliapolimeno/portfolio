@@ -1020,7 +1020,7 @@ body.drawer-open
 
     --mobile-drawer-strip-height: 18px;
 
-    --mobile-content-top: 52px;
+    --mobile-content-top: 42px;
   }
 
 
@@ -1393,8 +1393,7 @@ body.drawer-open
   .projects-grid {
     position: absolute;
 
-    top:
-      var(--mobile-content-top);
+    top: var(--margin);
 
     left: var(--margin);
     right: var(--margin);
