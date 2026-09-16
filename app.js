@@ -701,13 +701,62 @@ const projects = [
         thumbnail: "projects/UTURN/thumbs/UTURN01.png"
       },
 
+    ]
+  },
 
+/* =================================
+     11 — The Endless Coffee
+  ================================= */
+
+  {
+    id: "endless-coffee",
+
+    title: "The Endless Coffee",
+
+    category:
+      "[3D Motion Design]",
+
+    description:
+      "This animation produced in Politecnico di Milano, depicts a micro-world inside a coffee machine, where a coffee bean moves through fictitious mechanisms in a landscape of slides, roller coasters, and neon lights. The bean passes through each stage of processing, from boiling and roasting to grinding, until it finally flows into the cup. The narrative is structured as a loop: the operator drinks the coffee at the beginning, which is the same coffee produced at the end. The final scene mirrors the opening one, creating a paradox in which coffee is needed to produce coffee, reflected in the project’s title.",
+
+    year: "2022",
+
+    team: "E. Galliani, G. Polimeno, C. Tosi",
+
+    media: [
+
+
+          {
+        id: "coffee-01",
+        type: "video",
+        src: "projects/ENDLESSCOFFEE/COFFEE01.mp4",
+        thumbnail: "projects/ENDLESSCOFFEE/thumbs/COFFEE01.png"
+      },
+
+             {
+        id: "coffee-03",
+        type: "image",
+        src: "projects/ENDLESSCOFFEE/COFFEE03.jpg",
+      },
+
+          {
+        id: "coffee-02",
+        type: "video",
+        src: "projects/ENDLESSCOFFEE/COFFEE02.mp4",
+        externalUrl: "https://www.youtube.com/watch?v=UuVPhAYderw",
+        externalLabel: "Watch with sound",
+        thumbnail: "projects/ENDLESSCOFFEE/thumbs/COFFEE02.png"
+      },
+
+        {
+        id: "coffee-04",
+        type: "image",
+        src: "projects/ENDLESSCOFFEE/COFFEE04.jpg",
+      },
 
 
     ]
   }
-
-
 
 ];
 
