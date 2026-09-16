@@ -1924,16 +1924,47 @@ function showDrawerCategory(
     return;
   }
 
-
   drawerFooter.innerHTML =
     content;
-
 
   drawerFooter.classList.add(
     "is-visible"
   );
 
+
+  /* MOBILE:
+     lascia sempre lo stesso spazio
+     sopra anno + categorie
+  */
+
+  if (mobileMedia.matches) {
+
+    requestAnimationFrame(() => {
+
+      const layout =
+        document.querySelector(
+          ".project-info-layout"
+        );
+
+      if (!layout) {
+        return;
+      }
+
+      const footerHeight =
+        drawerFooter.getBoundingClientRect().height;
+
+      const footerBottom = 10;
+      const gap = 10;
+
+      layout.style.bottom =
+        `${footerBottom + footerHeight + gap}px`;
+
+    });
+
+  }
+
 }
+
 
 
 function hideDrawerCategory() {
@@ -2732,3 +2763,4 @@ function init() {
 
 
 init();
+

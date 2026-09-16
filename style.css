@@ -221,12 +221,6 @@ a:hover {
   color: var(--text);
 }
 
-
-/*
-  Quando Project Info è aperto,
-  il +Info esterno scompare.
-*/
-
 body.project-info-open
 #openProjectInfo {
   opacity: 0;
@@ -265,12 +259,6 @@ body.project-info-open
 #openAboutExternal:hover {
   color: var(--text);
 }
-
-
-/*
-  Quando About è aperto,
-  l'About esterno scompare.
-*/
 
 body.about-open
 #openAboutExternal {
@@ -422,12 +410,6 @@ body.about-open
 /* =================================
    THUMBNAILS
 ================================= */
-
-/*
-  DESKTOP:
-  ora sono sovrapposte al carosello,
-  in alto a sinistra.
-*/
 
 .thumbnails {
   position: fixed;
@@ -1014,13 +996,27 @@ body.drawer-open
 
     --label-col: 45px;
 
+    /*
+      Header sito e header drawer
+      hanno la stessa altezza.
+    */
     --mobile-header-height: 34px;
 
     --mobile-footer-height: 34px;
 
     --mobile-drawer-strip-height: 18px;
 
-    --mobile-content-top: 42px;
+    /*
+      Il contenuto del drawer parte
+      esattamente dopo il suo header.
+    */
+    --mobile-content-top:
+      var(--mobile-header-height);
+
+    /*
+      Descrizione → team/client/exhibition
+    */
+    --mobile-meta-gap: 20px;
   }
 
 
@@ -1053,7 +1049,6 @@ body.drawer-open
     z-index: 60;
 
     width: 100%;
-
     height:
       var(--mobile-header-height);
 
@@ -1066,12 +1061,20 @@ body.drawer-open
   }
 
 
+  /*
+    HEADER PRINCIPALE:
+    34px di altezza.
+  */
+
   .project-heading {
     position: absolute;
 
-    top: var(--margin);
+    top: 0;
     left: var(--margin);
     right: var(--margin);
+
+    height:
+      var(--mobile-header-height);
 
     display: grid;
 
@@ -1079,7 +1082,7 @@ body.drawer-open
       var(--label-col)
       minmax(0, 1fr);
 
-    align-items: start;
+    align-items: center;
 
     pointer-events: auto;
   }
@@ -1104,10 +1107,16 @@ body.drawer-open
   #openProjectInfo {
     position: fixed;
 
-    top: var(--margin);
+    top: 0;
     right: var(--margin);
 
     z-index: 70;
+
+    height:
+      var(--mobile-header-height);
+
+    display: flex;
+    align-items: center;
 
     margin: 0;
     padding: 0;
@@ -1125,6 +1134,16 @@ body.drawer-open
 
   #openAboutExternal {
     display: none;
+  }
+
+
+  /* ===============================
+     PROJECT META
+  =============================== */
+
+  .project-meta {
+    margin-top:
+      var(--mobile-meta-gap);
   }
 
 
@@ -1364,25 +1383,42 @@ body.drawer-open
 
 
   /* ===============================
-     DRAWER TOP
+     DRAWER HEADER
+
+     Stessa identica altezza
+     dell'header principale.
   =============================== */
 
   .about-label,
   .project-info-label {
     position: absolute;
 
-    top: var(--margin);
+    top: 0;
     left: var(--margin);
 
     z-index: 5;
+
+    height:
+      var(--mobile-header-height);
+
+    display: flex;
+    align-items: center;
   }
 
 
   .drawer-switch {
     position: absolute;
 
-    top: var(--margin);
+    top: 0;
     right: var(--margin);
+
+    z-index: 5;
+
+    height:
+      var(--mobile-header-height);
+
+    display: flex;
+    align-items: center;
   }
 
 
@@ -1467,13 +1503,17 @@ body.drawer-open
   .about-layout {
     position: absolute;
 
+    /*
+      Parte esattamente dopo
+      l'header da 34px.
+    */
     top:
       var(--mobile-content-top);
 
     left: var(--margin);
     right: var(--margin);
 
-    bottom: 55px;
+    bottom: 25px;
 
     display: block;
 
@@ -1493,13 +1533,23 @@ body.drawer-open
   .project-info-layout {
     position: absolute;
 
+    /*
+      Parte esattamente dopo
+      l'header da 34px.
+    */
     top:
       var(--mobile-content-top);
 
     left: var(--margin);
     right: var(--margin);
 
-    bottom: 55px;
+    /*
+      Fallback.
+      Il JS può sovrascriverlo
+      in base all'altezza reale
+      di anno + categorie.
+    */
+    bottom: 62px;
 
     display: block;
 
