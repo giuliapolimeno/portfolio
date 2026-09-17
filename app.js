@@ -1466,7 +1466,7 @@ function updateProjectsGrid() {
           "index-action index-info";
 
         infoButton.textContent =
-          "+Info";
+          "+Project info";
 
 
         infoButton.addEventListener(

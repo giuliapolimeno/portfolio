@@ -192,7 +192,7 @@ a:hover {
 
 
 /* =================================
-   PROJECT INFO BUTTON
+   EXTERNAL PROJECT INFO
 ================================= */
 
 #openProjectInfo {
@@ -221,17 +221,9 @@ a:hover {
   color: var(--text);
 }
 
-body.project-info-open
-#openProjectInfo {
-  opacity: 0;
-  visibility: hidden;
-
-  pointer-events: none;
-}
-
 
 /* =================================
-   ABOUT BUTTON — DESKTOP
+   EXTERNAL ABOUT
 ================================= */
 
 #openAboutExternal {
@@ -260,8 +252,16 @@ body.project-info-open
   color: var(--text);
 }
 
-body.about-open
-#openAboutExternal {
+
+/* =================================
+   EXTERNAL BUTTONS — DRAWER OPEN
+
+   Quando QUALSIASI drawer è aperto,
+   entrambi i trigger esterni spariscono.
+================================= */
+
+body.drawer-open #openProjectInfo,
+body.drawer-open #openAboutExternal {
   opacity: 0;
   visibility: hidden;
 
@@ -996,26 +996,15 @@ body.drawer-open
 
     --label-col: 45px;
 
-    /*
-      Header sito e header drawer
-      hanno la stessa altezza.
-    */
     --mobile-header-height: 34px;
 
     --mobile-footer-height: 34px;
 
     --mobile-drawer-strip-height: 18px;
 
-    /*
-      Il contenuto del drawer parte
-      esattamente dopo il suo header.
-    */
     --mobile-content-top:
       var(--mobile-header-height);
 
-    /*
-      Descrizione → team/client/exhibition
-    */
     --mobile-meta-gap: 20px;
   }
 
@@ -1049,6 +1038,7 @@ body.drawer-open
     z-index: 60;
 
     width: 100%;
+
     height:
       var(--mobile-header-height);
 
@@ -1060,11 +1050,6 @@ body.drawer-open
     pointer-events: none;
   }
 
-
-  /*
-    HEADER PRINCIPALE:
-    34px di altezza.
-  */
 
   .project-heading {
     position: absolute;
@@ -1091,7 +1076,7 @@ body.drawer-open
   .project-heading-content {
     min-width: 0;
 
-    padding-right: 70px;
+    padding-right: 110px;
   }
 
 
@@ -1384,9 +1369,6 @@ body.drawer-open
 
   /* ===============================
      DRAWER HEADER
-
-     Stessa identica altezza
-     dell'header principale.
   =============================== */
 
   .about-label,
@@ -1503,10 +1485,6 @@ body.drawer-open
   .about-layout {
     position: absolute;
 
-    /*
-      Parte esattamente dopo
-      l'header da 34px.
-    */
     top:
       var(--mobile-content-top);
 
@@ -1533,22 +1511,12 @@ body.drawer-open
   .project-info-layout {
     position: absolute;
 
-    /*
-      Parte esattamente dopo
-      l'header da 34px.
-    */
     top:
       var(--mobile-content-top);
 
     left: var(--margin);
     right: var(--margin);
 
-    /*
-      Fallback.
-      Il JS può sovrascriverlo
-      in base all'altezza reale
-      di anno + categorie.
-    */
     bottom: 62px;
 
     display: block;
