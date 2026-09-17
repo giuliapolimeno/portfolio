@@ -39,8 +39,6 @@
   --index-row-gap: 20px;
 
   --index-max-title-width: 260px;
-
-  --mobile-content-gap: 20px;
 }
 
 
@@ -255,9 +253,6 @@ a:hover {
 
 /* =================================
    EXTERNAL BUTTONS — DRAWER OPEN
-
-   Quando QUALSIASI drawer è aperto,
-   entrambi i trigger esterni spariscono.
 ================================= */
 
 body.drawer-open #openProjectInfo,
@@ -268,30 +263,32 @@ body.drawer-open #openAboutExternal {
   pointer-events: none;
 }
 
-
 /* =================================
-   SITE NAME
+   SITE NAME — DESKTOP
+   Giulia Polimeno → DESTRA
 ================================= */
 
 .site-name {
-  position: absolute;
-
-  left: var(--margin);
-  bottom: var(--margin);
-}
-
-
-/* =================================
-   SITE FOOTER
-================================= */
-
-.site-footer {
   position: absolute;
 
   left: calc(
     var(--margin) +
     var(--label-col)
   );
+
+  bottom: var(--margin);
+}
+
+
+/* =================================
+   SITE FOOTER — DESKTOP
+   © portfolio 2026 → SINISTRA
+================================= */
+
+.site-footer {
+  position: absolute;
+
+  left: var(--margin);
 
   bottom: var(--margin);
 }
@@ -632,8 +629,7 @@ body.drawer-open #openAboutExternal {
   transition: none;
 }
 
-.drawer.is-intro
-.drawer-content {
+.drawer.is-intro .drawer-content {
   opacity: 1;
   visibility: visible;
 
@@ -668,8 +664,7 @@ body.drawer-open #openAboutExternal {
     opacity 0.12s ease;
 }
 
-.drawer.is-open
-.drawer-content {
+.drawer.is-open .drawer-content {
   opacity: 1;
   visibility: visible;
 
@@ -966,8 +961,7 @@ body.drawer-open #openAboutExternal {
    DRAWER OPEN STATE
 ================================= */
 
-body.drawer-open
-.thumbnails {
+body.drawer-open .thumbnails {
   pointer-events: none;
 }
 
@@ -996,14 +990,20 @@ body.drawer-open
 
     --label-col: 45px;
 
+    /*
+      Main header e drawer header
+      hanno la stessa altezza.
+    */
     --mobile-header-height: 34px;
+    --mobile-drawer-header-height: 34px;
 
     --mobile-footer-height: 34px;
-
     --mobile-drawer-strip-height: 18px;
 
-    --mobile-content-top:
-      var(--mobile-header-height);
+    /*
+      34px header + 8px di respiro.
+    */
+    --mobile-content-top: 42px;
 
     --mobile-meta-gap: 20px;
   }
@@ -1026,7 +1026,7 @@ body.drawer-open
 
 
   /* ===============================
-     HEADER
+     MAIN HEADER
   =============================== */
 
   .left-panel {
@@ -1038,7 +1038,6 @@ body.drawer-open
     z-index: 60;
 
     width: 100%;
-
     height:
       var(--mobile-header-height);
 
@@ -1076,6 +1075,10 @@ body.drawer-open
   .project-heading-content {
     min-width: 0;
 
+    /*
+      Lascia spazio a
+      +Project info.
+    */
     padding-right: 110px;
   }
 
@@ -1113,8 +1116,8 @@ body.drawer-open
 
 
   /*
-    Nessun About esterno
-    nella versione mobile.
+    About esterno resta nascosto
+    su mobile.
   */
 
   #openAboutExternal {
@@ -1225,6 +1228,10 @@ body.drawer-open
     overflow: hidden;
   }
 
+
+  /*
+    Su touch niente hover persistente.
+  */
 
   .thumbnail:hover img,
   .thumbnail:hover video,
@@ -1369,6 +1376,9 @@ body.drawer-open
 
   /* ===============================
      DRAWER HEADER
+
+     Stessa geometria del main
+     header: 34px e testo centrato.
   =============================== */
 
   .about-label,
@@ -1381,7 +1391,7 @@ body.drawer-open
     z-index: 5;
 
     height:
-      var(--mobile-header-height);
+      var(--mobile-drawer-header-height);
 
     display: flex;
     align-items: center;
@@ -1397,7 +1407,7 @@ body.drawer-open
     z-index: 5;
 
     height:
-      var(--mobile-header-height);
+      var(--mobile-drawer-header-height);
 
     display: flex;
     align-items: center;
@@ -1517,6 +1527,11 @@ body.drawer-open
     left: var(--margin);
     right: var(--margin);
 
+    /*
+      Fallback.
+      Il JS lo ricalcola in base
+      all'altezza reale del footer.
+    */
     bottom: 62px;
 
     display: block;
@@ -1542,70 +1557,73 @@ body.drawer-open
 
 
   /* ===============================
-     MOBILE FOOTER
-  =============================== */
+   MOBILE FOOTER
+=============================== */
 
-  .site-name,
-  .site-footer {
-    display: flex;
+.site-name,
+.site-footer {
+  display: flex;
 
-    position: fixed;
+  position: fixed;
 
-    bottom: 0;
+  bottom: 0;
 
-    z-index: 80;
+  z-index: 80;
 
-    width: auto;
+  height: var(--mobile-footer-height);
 
-    height:
-      var(--mobile-footer-height);
+  margin: 0;
+  padding: 0;
 
-    margin: 0;
-    padding: 0;
+  align-items: center;
 
-    align-items: center;
+  line-height: var(--line-height);
 
-    line-height:
-      var(--line-height);
-
-    pointer-events: none;
-  }
+  pointer-events: none;
+}
 
 
-  .site-name::before {
-    content: "";
+/* fondo bianco */
 
-    position: fixed;
+.site-name::before {
+  content: "";
 
-    left: 0;
-    right: 0;
-    bottom: 0;
+  position: fixed;
 
-    z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-    height:
-      var(--mobile-footer-height);
+  z-index: -1;
 
-    background:
-      var(--background);
-  }
+  height: var(--mobile-footer-height);
 
-
-  .site-name {
-    left: var(--margin);
-    right: auto;
-
-    text-align: left;
-  }
+  background: var(--background);
+}
 
 
-  .site-footer {
-    left: auto;
-    right: var(--margin);
+/* Giulia Polimeno — SINISTRA */
 
-    justify-content: flex-end;
+.site-name {
+  left: var(--margin);
+  right: auto;
 
-    text-align: right;
-  }
+  white-space: nowrap;
+
+  text-align: left;
+}
+
+
+/* © portfolio 2026 — DESTRA */
+
+.site-footer {
+  left: auto;
+  right: var(--margin);
+
+  white-space: nowrap;
+
+  justify-content: flex-end;
+  text-align: right;
+}
 
 }
