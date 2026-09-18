@@ -236,6 +236,13 @@ const projects = [
         type: "video",
         src: "projects/FLEAS/FLEAS03.mp4",
         thumbnail: "projects/FLEAS/thumbs/FLEAS03.png"
+      },
+
+         {
+        id: "fleas-05",
+        type: "video",
+        src: "projects/FLEAS/FLEAS05.mp4",
+        thumbnail: "projects/FLEAS/thumbs/FLEAS05.png"
       }
     ]
   },
