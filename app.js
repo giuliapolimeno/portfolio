@@ -775,7 +775,7 @@ const projects = [
     title: "Heineken x F1",
 
     category:
-      "[3D Motion Design]",
+      "[Brand identity]",
 
     description:
       "This project brings together a series of brand activations developed for the 2025 Abu Dhabi Grand Prix. Working within Heineken’s global F1 visual identity, I contributed to the adaptation and development of the campaign across different physical and retail touchpoints. The project involved translating an established brand system into a range of formats and scales, while maintaining visual consistency across the different activations.",
