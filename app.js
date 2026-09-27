@@ -713,7 +713,7 @@ const projects = [
 
 /* =================================
      11 — The Endless Coffee
-  ================================= */
+  ================================= 
 
   {
     id: "endless-coffee",
@@ -760,6 +760,65 @@ const projects = [
         type: "image",
         src: "projects/ENDLESSCOFFEE/COFFEE04.jpg",
       },
+
+
+    ]
+  },*/
+
+  /* =================================
+     12 — HEINEKEN
+  ================================= */
+
+  {
+    id: "heineken",
+
+    title: "Heineken x F1",
+
+    category:
+      "[3D Motion Design]",
+
+    description:
+      "This project brings together a series of brand activations developed for the 2025 Abu Dhabi Grand Prix. Working within Heineken’s global F1 visual identity, I contributed to the adaptation and development of the campaign across different physical and retail touchpoints. The project involved translating an established brand system into a range of formats and scales, while maintaining visual consistency across the different activations.",
+    year: "2025",
+
+    team: "Studio Pesca",
+    client: "Heineken",
+
+    media: [
+
+       {
+        id: "hein-01",
+        type: "image",
+        src: "projects/HEINEKEN/HEINEKEN01.png",
+      },
+
+
+      {
+        id: "hein-05",
+        type: "image",
+        src: "projects/HEINEKEN/HEINEKEN05.jpg",
+      },
+         {
+        id: "hein-03",
+        type: "image",
+        src: "projects/HEINEKEN/HEINEKEN03.png",
+      }, 
+
+
+        {
+        id: "hein-04",
+        type: "image",
+        src: "projects/HEINEKEN/HEINEKEN04.png",
+      },
+
+
+
+        {
+        id: "hein-06",
+        type: "image",
+        src: "projects/HEINEKEN/HEINEKEN06.png",
+      },
+
 
 
     ]
